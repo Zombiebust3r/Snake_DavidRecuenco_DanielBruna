@@ -39,6 +39,7 @@
     <ClInclude Include="TimeManager.hh" />
     <ClInclude Include="Transform.hh" />
     <ClInclude Include="Window.hh" />
+    <ClInclude Include="XMLreader.hh" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameScene.cc" />
