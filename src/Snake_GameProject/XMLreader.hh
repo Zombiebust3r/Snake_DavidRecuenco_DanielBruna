@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main() {
+void ReadXML() {
 	ifstream myfile("sampleconfig.xml");
 	rapidxml::xml_document<> doc;
 
