@@ -20,7 +20,7 @@ namespace GameEngine {
 		R.LoadFont<FontID::PIXEL>("ttf/minecraft.ttf", 40);
 
 		// sprites - images
-		R.LoadTexture<ObjectID::EMPTY>("gfx/fondo.png");
+		R.LoadTexture<ObjectID::EMPTY>("gfx/empty.png");
 		R.LoadTexture<ObjectID::SNAKE_HEAD>("gfx/snake_cabeza.png");
 		R.LoadTexture<ObjectID::SNAKE_BODY>("gfx/snake_recto.png");
 		R.LoadTexture<ObjectID::SNAKE_CURVE>("gfx/snake_curva.png");
@@ -32,7 +32,7 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::BUTTON_MEDIUM>("gfx/button_medium.png");
 		R.LoadTexture<ObjectID::BUTTON_HARD>("gfx/button_hard.png");
 		R.LoadTexture<ObjectID::BUTTON_EXIT>("gfx/button_exit.png");
-		R.LoadTexture<ObjectID::BG_00>("gfx/empty.png"); // MAIN MENU BG
+		R.LoadTexture<ObjectID::BG_00>("gfx/fondo.png"); // MAIN MENU BG
 		R.LoadTexture<ObjectID::BG_01>("gfx/empty.png"); // IG BG
 
 		// para que no se queje vs (cosas de candy crush)

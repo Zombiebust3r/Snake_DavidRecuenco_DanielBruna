@@ -1,21 +1,6 @@
-﻿  Snake_GameProject.vcxproj -> C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe
-  Snake_GameProject.vcxproj -> C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.pdb (Full PDB)
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libFLAC-8.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libfreetype-6.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libjpeg-9.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libmikmod-2.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libmodplug-1.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libogg-0.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libpng16-16.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libtiff-5.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libvorbis-0.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libvorbisfile-3.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\libwebp-4.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\SDL2.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\SDL2_image.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\SDL2_mixer.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\SDL2_net.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\SDL2_ttf.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\smpeg2.dll
-  C:\Users\Davidro\Documents\Visual Studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\dep\dll\x64\zlib1.dll
-  18 File(s) copied
+﻿  main.cc
+  MainMenu.cc
+  Generando código...
+  Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe
+  Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.pdb (Full PDB)
+  0 File(s) copied

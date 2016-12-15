@@ -9,15 +9,18 @@
 
 using namespace Logger;
 
+#define CELL_WIDTH 80
+#define CELL_HEIGHT 80
 
-
-MainMenu::MainMenu(void) {
-	//background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
+MainMenu::MainMenu(void) : m_grid("lvl/testLvl.dat", CELL_WIDTH, CELL_HEIGHT) {
+	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
 	
-	easy = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_EASY };
-	medium = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_MEDIUM };
-	hard = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_HARD };
-	exit = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_EXIT };
+
+	// BUTTONS.X = ((GAME_WIDTH/2)-(BUTTON_WIDTH/2)) = ((1024/2)-(300/2)) = 512-150 = 362
+	easy = { { 362, 100, W.GetWidth(), W.GetHeight() }, ObjectID::BUTTON_EASY };
+	medium = { { 362, 200, W.GetWidth(), W.GetHeight() }, ObjectID::BUTTON_MEDIUM };
+	hard = { { 362, 300, W.GetWidth(), W.GetHeight() }, ObjectID::BUTTON_HARD };
+	exit = { { 362, 400, W.GetWidth(), W.GetHeight() }, ObjectID::BUTTON_EXIT };
 
 }
 

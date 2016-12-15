@@ -12,6 +12,7 @@ public:
 	void Update(void) override;
 	void Draw(void) override;
 private:
+	Grid m_grid;
 	Sprite background;
 	Sprite easy;
 	Sprite medium;
