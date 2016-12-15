@@ -2,12 +2,18 @@
 #include "System.hh"
 #include "Logger.hh"
 #include "MainMenu.hh" //SIEMPRE INCLUIR EL .HH CORRESPONDIENTE!!!!
+
+// DIMENSIONES DE LOS BOTONES: 300 x 50 px
+#define B_W 300; //button width
+#define B_H 50; //button height
+
 using namespace Logger;
 
-MainMenu::MainMenu(void) {
-	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
 
-	// DIMENSIONES DE LOS BOTONES: 300 x 50 px
+
+MainMenu::MainMenu(void) {
+	//background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
+	
 	easy = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_EASY };
 	medium = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_MEDIUM };
 	hard = { { 0, 0, W.GetHeight(), W.GetHeight() }, ObjectID::BUTTON_HARD };

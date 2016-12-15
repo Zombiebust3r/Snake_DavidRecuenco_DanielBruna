@@ -9,6 +9,7 @@
 
 #pragma region GAME_SCENES
 #include "GameScene.hh"
+#include "MainMenu.hh"
 #pragma endregion TODO
 
 //! Initializes game needs and controls the game loop
@@ -27,18 +28,22 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::FRUIT>("gfx/fruta.png");
 		R.LoadTexture<ObjectID::WALL>("gfx/pared.png");
 
-		/*R.LoadTexture<ObjectID::BUTTON_EASY>("gfx/IMG_TO_ADD.png");
-		R.LoadTexture<ObjectID::BUTTON_MEDIUM>("gfx/IMG_TO_ADD.png");
-		R.LoadTexture<ObjectID::BUTTON_HARD>("gfx/IMG_TO_ADD.png");
-		R.LoadTexture<ObjectID::BUTTON_EXIT("gfx/IMG_TO_ADD.png");
+		R.LoadTexture<ObjectID::BUTTON_EASY>("gfx/button_easy.png");
+		R.LoadTexture<ObjectID::BUTTON_MEDIUM>("gfx/button_medium.png");
+		R.LoadTexture<ObjectID::BUTTON_HARD>("gfx/button_hard.png");
+		R.LoadTexture<ObjectID::BUTTON_EXIT>("gfx/button_exit.png");
 		R.LoadTexture<ObjectID::BG_00>("gfx/empty.png"); // MAIN MENU BG
 		R.LoadTexture<ObjectID::BG_01>("gfx/empty.png"); // IG BG
-		*/
+
+		// para que no se queje vs (cosas de candy crush)
+		//R.LoadTexture<ObjectID::CANDY_EMPTY>("gfx/na.png");
+		
 	}
 	//! Adds the game scenes into the Scene Manager and decides which is the first screen
 	void AddScenes(void) {
 		SM.AddScene<GameScene>();
-		SM.SetCurScene<GameScene>();
+		SM.AddScene<MainMenu>();
+		SM.SetCurScene<MainMenu>();
 	}
 	/** 
 	 * Runs the game specifying the window's name and dimensions
