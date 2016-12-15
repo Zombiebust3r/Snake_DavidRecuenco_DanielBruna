@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{6197cb6a-d52c-4e4b-8083-b6332a04b30b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{f9b29de2-6183-4083-985e-3ea92138f5d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{a7183fd7-3733-4547-a6df-5e78c842d7dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{6eb79bf2-13e1-481c-8c79-f0a693ec2793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{5895b1a7-6dd6-4b52-bfec-e0e3cabdb89b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\Example GameScenes %28Jordi%29">
+      <UniqueIdentifier>{6a8dc5fe-1b66-4360-b52b-8d5b1cc1f82d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SceneManager.hh">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.hh">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine.hh">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.hh">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ID.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.hh">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.hh">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IOManager.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.hh">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.hh">
+      <Filter>Scenes\Example GameScenes %28Jordi%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Grid.cc">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cc" />
+    <ClCompile Include="GameScene.cc">
+      <Filter>Scenes\Example GameScenes %28Jordi%29</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cc">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
