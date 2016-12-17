@@ -2,6 +2,9 @@
 #include "System.hh"
 #include "Logger.hh"
 #include "MainMenu.hh" //SIEMPRE INCLUIR EL .HH CORRESPONDIENTE!!!!
+#include "HardMode.hh"
+#include "MediumMode.hh"
+#include "EasyMode.hh"
 
 // DIMENSIONES DE LOS BOTONES: 300 x 50 px
 #define B_W 300 //button width
@@ -38,13 +41,13 @@ void MainMenu::Update(void) {
 	if (IM.IsMouseDown<MOUSE_BUTTON_LEFT>()) {
 		mouseCoords = IM.GetMouseCoords();
 		if ((mouseCoords.x >= B_X && mouseCoords.x <= B_X + B_W) && (mouseCoords.y >= 250 && mouseCoords.y <= 250 + B_H)) {
-			Println("1");
+			SM.SetCurScene<EasyMode>();
 		} else if ((mouseCoords.x >= B_X && mouseCoords.x <= B_X + B_W) && (mouseCoords.y >= 350 && mouseCoords.y <= 350 + B_H)) {
-			Println("2");
+			SM.SetCurScene<MediumMode>();
 		} else if ((mouseCoords.x >= B_X && mouseCoords.x <= B_X + B_W) && (mouseCoords.y >= 450 && mouseCoords.y <= 450 + B_H)) {
-			Println("3");
+			SM.SetCurScene<HardMode>();
 		} else if ((mouseCoords.x >= B_X && mouseCoords.x <= B_X + B_W) && (mouseCoords.y >= 550 && mouseCoords.y <= 550 + B_H)) {
-			Println("4");
+			SetState<SceneState::EXIT>();
 		}
 	}
 	

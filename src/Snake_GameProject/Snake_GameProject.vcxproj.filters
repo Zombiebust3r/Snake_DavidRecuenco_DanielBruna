@@ -78,6 +78,15 @@
     <ClInclude Include="XMLreader.hh">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="HardMode.hh">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MediumMode.hh">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EasyMode.hh">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">
@@ -85,6 +94,15 @@
     </ClCompile>
     <ClCompile Include="main.cc" />
     <ClCompile Include="MainMenu.cc">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="HardMode.cc">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MediumMode.cc">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EasyMode.cc">
       <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>

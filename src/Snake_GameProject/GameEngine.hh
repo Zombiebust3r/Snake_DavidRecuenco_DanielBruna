@@ -10,6 +10,9 @@
 #pragma region GAME_SCENES
 #include "GameScene.hh"
 #include "MainMenu.hh"
+#include "EasyMode.hh"
+#include "MediumMode.hh"
+#include "HardMode.hh"
 #pragma endregion TODO
 
 //! Initializes game needs and controls the game loop
@@ -35,13 +38,14 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::BG_00>("gfx/fondo.png"); // MAIN MENU BG
 		R.LoadTexture<ObjectID::BG_01>("gfx/empty.png"); // IG BG
 
-		// para que no se queje vs (cosas de candy crush)
-		//R.LoadTexture<ObjectID::CANDY_EMPTY>("gfx/na.png");
 		
 	}
 	//! Adds the game scenes into the Scene Manager and decides which is the first screen
 	void AddScenes(void) {
 		SM.AddScene<MainMenu>();
+		SM.AddScene<EasyMode>();
+		SM.AddScene<MediumMode>();
+		SM.AddScene<HardMode>();
 		SM.SetCurScene<MainMenu>();
 	}
 	/** 
