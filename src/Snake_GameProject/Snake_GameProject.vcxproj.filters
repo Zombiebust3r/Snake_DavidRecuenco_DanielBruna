@@ -16,9 +16,6 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{5895b1a7-6dd6-4b52-bfec-e0e3cabdb89b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\Example GameScenes %28Jordi%29">
-      <UniqueIdentifier>{6a8dc5fe-1b66-4360-b52b-8d5b1cc1f82d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.hh">
@@ -78,9 +75,6 @@
     <ClInclude Include="MainMenu.hh">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="GameScene.hh">
-      <Filter>Scenes\Example GameScenes %28Jordi%29</Filter>
-    </ClInclude>
     <ClInclude Include="XMLreader.hh">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -90,9 +84,6 @@
       <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="main.cc" />
-    <ClCompile Include="GameScene.cc">
-      <Filter>Scenes\Example GameScenes %28Jordi%29</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cc">
       <Filter>Scenes</Filter>
     </ClCompile>

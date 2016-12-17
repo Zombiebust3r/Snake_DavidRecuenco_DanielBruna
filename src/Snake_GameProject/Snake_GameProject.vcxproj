@@ -22,7 +22,6 @@
     <ClInclude Include="Assert.hh" />
     <ClInclude Include="Color.hh" />
     <ClInclude Include="GameEngine.hh" />
-    <ClInclude Include="GameScene.hh" />
     <ClInclude Include="Grid.hh" />
     <ClInclude Include="GUI.hh" />
     <ClInclude Include="ID.hh" />
@@ -42,7 +41,6 @@
     <ClInclude Include="XMLreader.hh" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameScene.cc" />
     <ClCompile Include="Grid.cc" />
     <ClCompile Include="main.cc" />
     <ClCompile Include="MainMenu.cc" />
