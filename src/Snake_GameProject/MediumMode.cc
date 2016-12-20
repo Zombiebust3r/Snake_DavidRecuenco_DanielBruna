@@ -20,6 +20,7 @@ MediumMode::~MediumMode(void) {
 }
 
 void MediumMode::OnEntry(void) {
+	beatedHighScore = false;
 }
 
 void MediumMode::OnExit(void) {
@@ -36,4 +37,27 @@ void MediumMode::Update(void) {
 void MediumMode::Draw(void) {
 	background.Draw();
 
+
+	GUI::DrawTextBlended<FontID::PIXEL>("Score: " /*+ to_string(m_score)*/, //Message
+	{ W.GetWidth() >> 3, 50, 1, 1 }, //Transform
+	{ 255, 255, 255 }); // Color RGB
+
+	if (beatedHighScore) {
+		GUI::DrawTextBlended<FontID::PIXEL>("HighScore: " /*+ to_string(m_score)*/, //Message
+		{ 600, 50, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+	}
+	else if (!beatedHighScore) {
+		GUI::DrawTextBlended<FontID::PIXEL>("HighScore: " /*+ to_string(m_highscore)*/, //Message
+		{ 600, 50, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+	}
+
+	GUI::DrawTextBlended<FontID::PIXEL>("Lifes: " /*+ to_string(m_lifes)*/, //Message
+	{ W.GetWidth() >> 3, 100, 1, 1 }, //Transform
+	{ 255, 255, 255 }); // Color RGB
+
+	GUI::DrawTextBlended<FontID::PIXEL>("MEDIUM MODE", //Message
+	{ 600, 100, 1, 1 }, //Transform
+	{ 255, 255, 255 }); // Color RGB
 }

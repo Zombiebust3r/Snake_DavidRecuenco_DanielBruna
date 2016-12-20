@@ -10,7 +10,7 @@
 #define dimIG 64 // dimensiones IN GAME
 
 using namespace Logger;
-
+using namespace std;
 
 EasyMode::EasyMode(void) {
 	// obj = { { posX, posY, ancho, alto }, ID };
@@ -22,6 +22,7 @@ EasyMode::~EasyMode(void) {
 }
 
 void EasyMode::OnEntry(void) {
+	beatedHighScore = false;
 }
 
 void EasyMode::OnExit(void) {
@@ -38,4 +39,26 @@ void EasyMode::Update(void) {
 void EasyMode::Draw(void) {
 	background.Draw();
 
+
+	GUI::DrawTextBlended<FontID::PIXEL>("Score: " /*+ to_string(m_score)*/, //Message
+		{ W.GetWidth() >> 3, 50, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+
+	if (beatedHighScore) {
+		GUI::DrawTextBlended<FontID::PIXEL>("HighScore: " /*+ to_string(m_score)*/, //Message
+		{ 600, 50, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+	} else if (!beatedHighScore) {
+		GUI::DrawTextBlended<FontID::PIXEL>("HighScore: " /*+ to_string(m_highscore)*/, //Message
+		{ 600, 50, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+	}
+
+	GUI::DrawTextBlended<FontID::PIXEL>("Lifes: " /*+ to_string(m_lifes)*/, //Message
+		{ W.GetWidth() >> 3, 100, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
+
+	GUI::DrawTextBlended<FontID::PIXEL>("EASY MODE", //Message
+		{ 600, 100, 1, 1 }, //Transform
+		{ 255, 255, 255 }); // Color RGB
 }
