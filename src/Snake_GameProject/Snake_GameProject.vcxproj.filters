@@ -87,6 +87,9 @@
     <ClInclude Include="EasyMode.hh">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Snake.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">
