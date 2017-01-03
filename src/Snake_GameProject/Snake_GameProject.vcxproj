@@ -22,6 +22,7 @@
     <ClInclude Include="Assert.hh" />
     <ClInclude Include="Color.hh" />
     <ClInclude Include="EasyMode.hh" />
+    <ClInclude Include="FruitSpawn.hh" />
     <ClInclude Include="GameEngine.hh" />
     <ClInclude Include="Grid.hh" />
     <ClInclude Include="GUI.hh" />

@@ -90,6 +90,9 @@
     <ClInclude Include="Snake.hh">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="FruitSpawn.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">

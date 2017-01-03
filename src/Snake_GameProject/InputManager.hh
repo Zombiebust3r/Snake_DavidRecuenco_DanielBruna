@@ -219,9 +219,3 @@ private:
 	Sint32 m_mouseWheel{ 0 };								//!< Mouse wheel info which is stored for vertical movement.
 	bool m_exit = false;									//!< Trigger condition that sets to true when the user clicks the cross window button.
 };
-
-void InputManager::actualDir(Directions actual) {
-	switch (actual) {
-
-	}
-}

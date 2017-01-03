@@ -28,7 +28,6 @@ public:
 	~Coord();
 	Coord(int p_x, int p_y);
 	int x, y;
-	
 };
 
 Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
@@ -37,10 +36,9 @@ Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
 
 class Snake
 {
-private:
-	list<Coord> coordsRegister;
-
 public:
+	static list<Coord> coordsRegister;
+
 	Snake();
 	~Snake();
 	Snake(Coord inicialPos);
@@ -52,7 +50,16 @@ public:
 	Coord GetHeadCoord();
 
 	//Compares two coords, either x or y, to know if they are EQUAL/HIGH/SMALL
-	bool CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation);
+	//bool CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation);
+
+	static bool CheckPosition(Coord p_fruitCoord) {
+		for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
+			if (p_fruitCoord.x == it->x) return true;
+			if (p_fruitCoord.y == it->y) return true;
+		}
+		return false;
+	
+	}
 
 	//This functions recieves the INPUT KEY that is being pressed from the INPUT MANAGER in order to know what is gonna be the direction the snake should go.
 	Coord GetNewCoord();
@@ -101,10 +108,11 @@ Coord Snake::GetHeadCoord() {
 	Coord tmp;
 	tmp.x = coordsRegister.begin()->x;
 	tmp.y = coordsRegister.begin()->y;
+	return tmp;
 }
 
 
-bool Snake::CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation) {
+/*bool Snake::CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation) {
 	switch (desiredOperation)
 	{
 	case EQUAL:
@@ -122,20 +130,28 @@ bool Snake::CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation
 	default:
 		break;
 	}
+}*/
+
+/*
+static int Snake::CheckPosition(int f_x, int f_y) {
+for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
+if (f_x == it->x) return true;
+if (f_y == it->y) return true;
 }
+return false;
+}
+*/
+
 
 
 void Snake::moveSnake() {
 	auto itSecond = coordsRegister.end();
-	itSecond--;																			//This itereator is gonna be using to get the value of the one before the it is pointing.
 
 	for (auto it = coordsRegister.end(); it != coordsRegister.begin(); it--) {			//In this loop we are gonna make a cascade effect with the coords. This simulates a snake-like movement.
+		itSecond--;																		//This itereator is gonna be using to get the value of the one before the "it" is pointing.
 		it->x = itSecond->x;															//			1						1 <-- itSecond			1 <-- itSecond								newCoord
 		it->y = itSecond->y;															//			2 <-- itSecond   ==>	2 <-- it		==>		1 <-- it		==> outside the for:			1
-																						//			3 <-- it				2						2												2
-																						//
-		itSecond--;
-	}
+	}																					//			3 <-- it				2						2												2
 
 	//Put new coord depending on the direction the player is going, this new coord is given by the function GetNewCoord().
 	Coord tmp = GetNewCoord();
