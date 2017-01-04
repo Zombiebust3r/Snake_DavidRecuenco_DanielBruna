@@ -111,5 +111,8 @@
     <ClCompile Include="EasyMode.cc">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Snake.cc">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

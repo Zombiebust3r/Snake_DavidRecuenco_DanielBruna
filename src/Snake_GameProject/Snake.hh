@@ -29,6 +29,8 @@ public:
 	Coord(int p_x, int p_y);
 	int x, y;
 };
+Coord::Coord() {}
+Coord::~Coord() {}
 
 Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
 
@@ -70,6 +72,8 @@ public:
 	//Draws the snake parts. Depending on the position of each part compared to the one before and next.
 	void drawSnake();
 };
+Snake::Snake() {}
+Snake::~Snake() {}
 
 Snake::Snake(Coord inicialPos) {
 	coordsRegister.push_back(inicialPos);
@@ -146,8 +150,10 @@ return false;
 
 void Snake::moveSnake() {
 	auto itSecond = coordsRegister.end();
+	itSecond--;
+	auto it = itSecond;
 
-	for (auto it = coordsRegister.end(); it != coordsRegister.begin(); it--) {			//In this loop we are gonna make a cascade effect with the coords. This simulates a snake-like movement.
+	for (it; it != coordsRegister.begin(); it--) {			//In this loop we are gonna make a cascade effect with the coords. This simulates a snake-like movement.
 		itSecond--;																		//This itereator is gonna be using to get the value of the one before the "it" is pointing.
 		it->x = itSecond->x;															//			1						1 <-- itSecond			1 <-- itSecond								newCoord
 		it->y = itSecond->y;															//			2 <-- itSecond   ==>	2 <-- it		==>		1 <-- it		==> outside the for:			1
@@ -161,10 +167,13 @@ void Snake::moveSnake() {
 
 void Snake::drawSnake() {
 	//Need 3 iterators: Prev Now Next.	(The snake starts with 3 parts)
-	list<Coord>::iterator prev, now, next;
+	list<Coord>::iterator prev, now, next, tail;
 	prev = coordsRegister.begin();					//First position of the list
 	next = coordsRegister.begin();	next++;			//Third position of the list	(will increase at the start of the for. This way it doesn't point to something that doesn't exist at the end of the for loop. It would have tried to point to the one after the tail taht obviously doesn't exist.)
 	now = next;										//Second position of the list
+
+	tail = coordsRegister.end();					//Tail position to make the for stop at that point
+	tail--;
 	
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//Draw head depending on what key the user is pressing. W: Upwards | A: Left | D: Rigt | S: Downwards
@@ -185,8 +194,8 @@ void Snake::drawSnake() {
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	//Draws all the parts between the head and the tail.
-	for (now; now != coordsRegister.end(); now++) {
-		
+	for (now; now != tail; now++) {
+		next++;
 		//DIAGONAL MOVEMENT
 		if (now->x == prev->x) {							//VERTICAL MOVEMENT
 			if (now->x == next->x)								{ /*VERTICAL LINE*/ }
@@ -198,10 +207,11 @@ void Snake::drawSnake() {
 		else if(now->y == prev->y){							//HORIZONTAL MOVEMENT
 			if (now->y == next->y)								{ /*HORIZONTAL LINE*/ }
 			else if (prev->x < next->x && prev->y > next->y)	{ /*Diagonal UPRIGHT		HORIZONTAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y > next->y)	{ /*Diagonal UPLEFT		HORIZONTAL MOVEMENT*/ }
+			else if (prev->x > next->x && prev->y > next->y)	{ /*Diagonal UPLEFT			HORIZONTAL MOVEMENT*/ }
 			else if (prev->x < next->x && prev->y < next->y)	{ /*Diagonal DOWNRIGHT	    HORIZONTAL MOVEMENT*/ }
 			else if (prev->x > next->x && prev->y < next->y)	{ /*Diagonal DOWNLEFT    	HORIZONTAL MOVEMENT*/ }
 		}
+		prev++;
 	}
 
 	//Draw the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
