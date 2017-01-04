@@ -1,6 +1,7 @@
 #include <list>
 #include "Grid.hh"
 #include "Snake.hh"
+#include "Score.hh"
 
 #define CELL 50 // EJEMPLO
 
@@ -17,7 +18,7 @@ public:
 	//Detects if coordsRegister.begin (snake's head) is the same as the fruit's coords
 	void EatFruit() {
 		if ((Snake::coordsRegister.begin()->x == fruitCoord.x) && (Snake::coordsRegister.begin()->y == fruitCoord.y)) {
-			//points
+			Score::addScore();
 			SpawnFruit();
 		}
 	}
