@@ -39,7 +39,7 @@ Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
 class Snake
 {
 public:
-	static list<Coord> coordsRegister;
+	list<Coord> coordsRegister;
 
 	Snake();
 	~Snake();
@@ -54,14 +54,7 @@ public:
 	//Compares two coords, either x or y, to know if they are EQUAL/HIGH/SMALL
 	//bool CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation);
 
-	static bool CheckPosition(Coord p_fruitCoord) {
-		for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
-			if (p_fruitCoord.x == it->x) return true;
-			if (p_fruitCoord.y == it->y) return true;
-		}
-		return false;
-	
-	}
+	bool CheckPosition(Coord p_fruitCoord);
 
 	//This functions recieves the INPUT KEY that is being pressed from the INPUT MANAGER in order to know what is gonna be the direction the snake should go.
 	Coord GetNewCoord();
@@ -87,6 +80,13 @@ void Snake::IncreaseSize(Coord p_coord) {
 	iCoords->x = 1;
 }
 
+bool Snake::CheckPosition(Coord p_fruitCoord) {
+	for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
+		if (p_fruitCoord.x == it->x && p_fruitCoord.y == it->y) return true;
+	}
+	return false;
+
+}
 
 ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Coord Snake::GetNewCoord() {

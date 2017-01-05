@@ -3,11 +3,12 @@
 #include "Logger.hh"
 #include "ID.hh"
 #include "InputManager.hh"
-#include "EasyMode.hh" //SIEMPRE INCLUIR EL .HH CORRESPONDIENTE!!!!
+#include "EasyMode.hh"
+#include "FruitSpawn.hh"
 
-// DIMENSIONES DE LOS ELEMENTOS: 64 x 64
+// DIMENSIONES DE LOS ELEMENTOS: 14 x 14 (source: 64 x 64)
 // Al ser iguales, solo se hace un define para ambas longitudes
-#define dimIG 64 // dimensiones IN GAME
+#define CELL 14 // dimensiones IN GAME
 
 using namespace Logger;
 using namespace std;
@@ -15,7 +16,14 @@ using namespace std;
 EasyMode::EasyMode(void) {
 	// obj = { { posX, posY, ancho, alto }, ID };
 	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
-
+	//		########  ####  ######  ##     ##    ###    
+	//		##     ##  ##  ##    ## ##     ##   ## ##   
+	//		##     ##  ##  ##       ##     ##  ##   ##  
+	//		########   ##   ######  ######### ##     ## 
+	//		##         ##        ## ##     ## ######### 
+	//		##         ##  ##    ## ##     ## ##     ## 
+	//		##        ####  ######  ##     ## ##     ## 
+	//printedSnake = { { 120 + CELL / 2 + (CELL * snake.coordsRegister->x), 120 + CELL / 2 + (CELL * snake.coordsRegister->y), CELL, CELL }, ObjectID::BG_00 };
 }
 
 EasyMode::~EasyMode(void) {
@@ -23,12 +31,27 @@ EasyMode::~EasyMode(void) {
 
 void EasyMode::OnEntry(void) {
 	beatedHighScore = false;
+	fruit.SpawnFruit();
+	score.score = 0;
+	score.lifes = 3;
 }
 
 void EasyMode::OnExit(void) {
 }
 
 void EasyMode::Update(void) {
+	snake.moveSnake();
+	if (fruit.EatFruit(snake)) {
+		do {
+			fruit.SpawnFruit();
+			score.addScore();
+		}
+		while (snake.CheckPosition(fruit.fruitCoord));
+	}
+	//CheckColls with walls ==> if true -1 vida.
+	/*if (snake.CheckPosition(map.walls)) { // Esto de map.walls ES UN EJEMPLO DE USO
+		score.decreaseLifes();
+	}*/
 	static MouseCoords mouseCoords(0, 0);
 	if (IM.IsMouseDown<MOUSE_BUTTON_LEFT>()) {
 		mouseCoords = IM.GetMouseCoords();
@@ -37,10 +60,14 @@ void EasyMode::Update(void) {
 }
 
 void EasyMode::Draw(void) {
+	//DRAW MAP
+
 	background.Draw();
+	fruit.drawFruit();
+	snake.drawSnake();
 
 
-	GUI::DrawTextBlended<FontID::PIXEL>("Score: " /*+ to_string(m_score)*/, //Message
+	GUI::DrawTextBlended<FontID::PIXEL>("Score: " + to_string(score.score), //Message
 		{ W.GetWidth() >> 3, 50, 1, 1 }, //Transform
 		{ 255, 255, 255 }); // Color RGB
 
@@ -54,7 +81,7 @@ void EasyMode::Draw(void) {
 		{ 255, 255, 255 }); // Color RGB
 	}
 
-	GUI::DrawTextBlended<FontID::PIXEL>("Lifes: " /*+ to_string(m_lifes)*/, //Message
+	GUI::DrawTextBlended<FontID::PIXEL>("Lifes: " + to_string(score.lifes), //Message
 		{ W.GetWidth() >> 3, 100, 1, 1 }, //Transform
 		{ 255, 255, 255 }); // Color RGB
 

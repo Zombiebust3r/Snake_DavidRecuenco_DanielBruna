@@ -3,16 +3,24 @@
 
 class Score {
 public:
-	int score = 0;
+	int score;
 	int highscore;
+	int lifes;
 
-	void addScore() {
-		if(FruitSpawn::EatFruit) score += 10;
-	}
-
-	void newHighscore() {
-		if (score > highscore) {
-			highscore = score;
-		}
-	}
+	void addScore();
+	void decreaseLifes();
 };
+
+void Score::addScore() {
+	score += 10;
+	if (score > highscore) {
+		highscore = score;
+	}
+}
+
+void Score::decreaseLifes() {
+	lifes--;
+	if (lifes == 0) {
+		// LA SNAKE MUERE, DE UNA MANERA MUY HORRIBLE
+	}
+}

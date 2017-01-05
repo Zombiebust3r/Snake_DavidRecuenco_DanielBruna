@@ -15,9 +15,8 @@ public:
 	void SpawnFruit();
 
 	//Detects if coordsRegister.begin (snake's head) is the same as the fruit's coords
-	bool EatFruit() {
-		if ((Snake::coordsRegister.begin()->x == fruitCoord.x) && (Snake::coordsRegister.begin()->y == fruitCoord.y)) {
-			SpawnFruit();
+	bool EatFruit(Snake p_snake) {
+		if ((p_snake.coordsRegister.begin()->x == fruitCoord.x) && (p_snake.coordsRegister.begin()->y == fruitCoord.y)) {			
 			return true;
 		} else { return false; }
 	}
@@ -29,7 +28,6 @@ public:
 void FruitSpawn::SpawnFruit() {
 	fruitCoord.x = rand() % 100;
 	fruitCoord.y = rand() % 100;
-	Snake::CheckPosition(fruitCoord);
 }
 
 void FruitSpawn::drawFruit() {
