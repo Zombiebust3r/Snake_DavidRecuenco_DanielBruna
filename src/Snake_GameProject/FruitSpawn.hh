@@ -1,9 +1,8 @@
 #include <list>
 #include "Grid.hh"
 #include "Snake.hh"
-#include "Score.hh"
 
-#define CELL 50 // EJEMPLO
+#define CELL 30 // EJEMPLO
 
 class FruitSpawn {
 public:
@@ -16,11 +15,11 @@ public:
 	void SpawnFruit();
 
 	//Detects if coordsRegister.begin (snake's head) is the same as the fruit's coords
-	void EatFruit() {
+	bool EatFruit() {
 		if ((Snake::coordsRegister.begin()->x == fruitCoord.x) && (Snake::coordsRegister.begin()->y == fruitCoord.y)) {
-			Score::addScore();
 			SpawnFruit();
-		}
+			return true;
+		} else { return false; }
 	}
 
 	//Draws the fruit in its own coords

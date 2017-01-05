@@ -1,9 +1,53 @@
-﻿  main.cc
-  MediumMode.cc
-  MainMenu.cc
-  HardMode.cc
-  EasyMode.cc
-  Generando código...
-  Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe
-  Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.pdb (Full PDB)
-  0 File(s) copied
+﻿  Snake.cc
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(79): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(79): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(79): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(80): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(80): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(80): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(81): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(81): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(81): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(85): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(85): error C2228: el operando izquierdo de '.push_front' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(85): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(103): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(103): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(103): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(103): error C2227: el operando izquierdo de '->x' debe señalar al tipo class/struct/union/generic
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(104): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(104): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(104): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(104): error C2227: el operando izquierdo de '->y' debe señalar al tipo class/struct/union/generic
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(113): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(113): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(113): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(113): error C2227: el operando izquierdo de '->x' debe señalar al tipo class/struct/union/generic
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(114): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(114): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(114): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(114): error C2227: el operando izquierdo de '->y' debe señalar al tipo class/struct/union/generic
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(152): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(152): error C2228: el operando izquierdo de '.end' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(152): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(153): error C3536: 'itSecond': no se puede usar antes de inicializarse
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(156): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(156): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(156): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(158): error C2227: el operando izquierdo de '->x' debe señalar al tipo class/struct/union/generic
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(158): note: el tipo es 'int'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(159): error C2227: el operando izquierdo de '->y' debe señalar al tipo class/struct/union/generic
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(159): note: el tipo es 'int'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(164): error C2227: el operando izquierdo de '->x' debe señalar al tipo class/struct/union/generic
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(164): note: el tipo es 'int'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(165): error C2227: el operando izquierdo de '->y' debe señalar al tipo class/struct/union/generic
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(165): note: el tipo es 'int'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(171): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(171): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(171): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(172): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(172): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(172): note: el tipo es 'unknown-type'
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(175): error C2065: 'coordsRegister': identificador no declarado
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(175): error C2228: el operando izquierdo de '.end' debe tener class/struct/union
+  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(175): note: el tipo es 'unknown-type'
