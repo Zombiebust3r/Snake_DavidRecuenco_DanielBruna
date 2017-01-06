@@ -3,17 +3,17 @@
 #include <iostream>
 #include "InputManager.hh"
 
-								//==========================================================================
-								//==					  How should this be used						  ==
-								//==																	  ==
-								//==		First you move the snake after drawing the map then			  ==
-								//==		draw the apples. After drawing check for colisions.			  ==
-								//==		If the snake colisions with a wall GAMEOVER, if it			  ==
-								//==		collisions with an apple give it points and increase		  ==
-								//==		its size with the given funtion in the snake class.			  ==
-								//==																	  ==
-								//==																	  ==
-								//==========================================================================
+//==========================================================================
+//==					  How should this be used						  ==
+//==																	  ==
+//==		First you move the snake after drawing the map then			  ==
+//==		draw the apples. After drawing check for colisions.			  ==
+//==		If the snake colisions with a wall GAMEOVER, if it			  ==
+//==		collisions with an apple give it points and increase		  ==
+//==		its size with the given funtion in the snake class.			  ==
+//==																	  ==
+//==																	  ==
+//==========================================================================
 
 using namespace std;
 
@@ -21,6 +21,19 @@ enum comparisons
 {
 	EQUAL, DIFF, SMALLER, HIGHER
 };
+
+class Direction {
+public:
+	Direction();
+	~Direction();
+	Direction(Directions p_dir);
+	Directions dir;
+
+};
+
+Direction::Direction() {}
+Direction::~Direction() {}
+Direction::Direction(Directions p_dir) : dir(p_dir) {}
 
 class Coord {
 public:
@@ -40,13 +53,16 @@ class Snake
 {
 public:
 	list<Coord> coordsRegister;
+	list<Direction> dirRegister;
+
+	int v;
 
 	Snake();
 	~Snake();
-	Snake(Coord inicialPos);
+	Snake(Coord inicialPos, int p_v);
 
 	//Inserts next coord in the "head" of the list.
-	void IncreaseSize(Coord p_coord);
+	void IncreaseSize();
 
 	//Returns the coords value of the head position in the list as a Coord variable. This is used to check colisions since the other parts of the snake just follow the head's path and should never collision with something the head didn't.
 	Coord GetHeadCoord();
@@ -57,27 +73,65 @@ public:
 	bool CheckPosition(Coord p_fruitCoord);
 
 	//This functions recieves the INPUT KEY that is being pressed from the INPUT MANAGER in order to know what is gonna be the direction the snake should go.
-	Coord GetNewCoord();
+	Directions GetNewDir();
+
+	void moveDir();
 
 	//Move the coords inside the list. This list is gonna be used to draw and check colisions with objects.
+
+private:
 	void moveSnake();
 
 	//Draws the snake parts. Depending on the position of each part compared to the one before and next.
+public:
 	void drawSnake();
 };
-Snake::Snake() {}
+Snake::Snake() {
+	coordsRegister.push_back({ 4, 1 });
+	coordsRegister.push_back({ 3, 1 });
+	coordsRegister.push_back({ 2, 1 });
+	dirRegister.push_back(DIR_RIGHT);
+	dirRegister.push_back(DIR_RIGHT);
+	dirRegister.push_back(DIR_RIGHT);
+	v = 1;
+}
 Snake::~Snake() {}
 
-Snake::Snake(Coord inicialPos) {
+Snake::Snake(Coord inicialPos, int p_v) : v(p_v) {
 	coordsRegister.push_back(inicialPos);
-	coordsRegister.push_back(inicialPos);
-	coordsRegister.push_back(inicialPos);
+	coordsRegister.push_back({ inicialPos.x - 1, inicialPos.y });
+	coordsRegister.push_back({ inicialPos.x - 2, inicialPos.y });
+	dirRegister.push_back(DIR_RIGHT);
+	dirRegister.push_back(DIR_RIGHT);
+	dirRegister.push_back(DIR_RIGHT);
 }
 
-void Snake::IncreaseSize(Coord p_coord) {
-	coordsRegister.push_front(p_coord);
-	list <Coord>::iterator iCoords;
-	iCoords->x = 1;
+void Snake::IncreaseSize() {
+	Coord headCoord;
+	headCoord = GetHeadCoord();
+	Directions headDir;
+	headDir = dirRegister.begin()->dir;
+
+	switch (headDir)
+	{
+	case DIR_UP:
+		headCoord.y -= v;
+		break;
+	case DIR_DOWN:
+		headCoord.y += v;
+		break;
+	case DIR_RIGHT:
+		headCoord.x += v;
+		break;
+	case DIR_LEFT:
+		headCoord.x -= v;
+		break;
+	default:
+		break;
+	}
+
+	coordsRegister.push_front(headCoord);
+	dirRegister.push_front(headDir);
 }
 
 bool Snake::CheckPosition(Coord p_fruitCoord) {
@@ -89,20 +143,18 @@ bool Snake::CheckPosition(Coord p_fruitCoord) {
 }
 
 ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Coord Snake::GetNewCoord() {
+Directions Snake::GetNewDir() {
 	//Get new coord depending on the key the user is pressing --> use INPUT MANAGER
-	Coord tmp;
+	Directions newDirection = DIR_UP;
 
 	switch (IM.actualDir) {
-		case DIR_UP: tmp.y--; break;
-		case DIR_RIGHT: tmp.x++; break;
-		case DIR_LEFT: tmp.x--; break;
-		case DIR_DOWN: tmp.y++; break;
+	case DIR_UP: newDirection = DIR_UP; break;
+	case DIR_RIGHT: newDirection = DIR_RIGHT; break;
+	case DIR_LEFT: newDirection = DIR_LEFT; break;
+	case DIR_DOWN: newDirection = DIR_DOWN; break;
 	}
 
-	coordsRegister.begin()->x = tmp.x;
-	coordsRegister.begin()->y = tmp.y;
-	return tmp;
+	return newDirection;
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -117,23 +169,23 @@ Coord Snake::GetHeadCoord() {
 
 
 /*bool Snake::CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation) {
-	switch (desiredOperation)
-	{
-	case EQUAL:
-		return coord1 == coord2;
-		break;
-	case DIFF:
-		return coord1 != coord2;
-		break;
-	case SMALLER:
-		return coord1 < coord2;
-		break;
-	case HIGHER:
-		return coord1 > coord2;
-		break;
-	default:
-		break;
-	}
+switch (desiredOperation)
+{
+case EQUAL:
+return coord1 == coord2;
+break;
+case DIFF:
+return coord1 != coord2;
+break;
+case SMALLER:
+return coord1 < coord2;
+break;
+case HIGHER:
+return coord1 > coord2;
+break;
+default:
+break;
+}
 }*/
 
 /*
@@ -146,23 +198,89 @@ return false;
 }
 */
 
+void Snake::moveDir() {
+	auto itSecond = dirRegister.end();
+	itSecond--;
+	auto it = itSecond;
 
+	for (it; it != dirRegister.begin(); it--) {
+		itSecond--;
+		it->dir = itSecond->dir;
+	}
 
-void Snake::moveSnake() {
+	Directions tmp = GetNewDir();
+	itSecond->dir = tmp;
+
+	/*
 	auto itSecond = coordsRegister.end();
 	itSecond--;
 	auto it = itSecond;
 
 	for (it; it != coordsRegister.begin(); it--) {			//In this loop we are gonna make a cascade effect with the coords. This simulates a snake-like movement.
-		itSecond--;																		//This itereator is gonna be using to get the value of the one before the "it" is pointing.
-		it->x = itSecond->x;															//			1						1 <-- itSecond			1 <-- itSecond								newCoord
-		it->y = itSecond->y;															//			2 <-- itSecond   ==>	2 <-- it		==>		1 <-- it		==> outside the for:			1
+	itSecond--;																		//This itereator is gonna be using to get the value of the one before the "it" is pointing.
+	it->x = itSecond->x;															//			1						1 <-- itSecond			1 <-- itSecond								newCoord
+	it->y = itSecond->y;															//			2 <-- itSecond   ==>	2 <-- it		==>		1 <-- it		==> outside the for:			1
 	}																					//			3 <-- it				2						2												2
 
 	//Put new coord depending on the direction the player is going, this new coord is given by the function GetNewCoord().
 	Coord tmp = GetNewCoord();
 	itSecond->x = tmp.x;
 	itSecond->y = tmp.y;
+	*/
+}
+
+void Snake::moveSnake() {
+	moveDir();
+	auto itSecond = dirRegister.end();
+	itSecond--;
+	auto it = coordsRegister.end();
+	it--;
+
+	for (it; it != coordsRegister.begin(); it--) {
+		switch (itSecond->dir)
+		{
+		case DIR_UP:
+			it->y -= v;
+			break;
+		case DIR_DOWN:
+			it->y += v;
+			break;
+		case DIR_RIGHT:
+			it->x += v;
+			break;
+		case DIR_LEFT:
+			it->x -= v;
+			break;
+		default:
+			break;
+		}
+
+		itSecond--;
+	}
+
+	//This is for the head of the snake since its not included inside the for. "it" and "itSecond" are pointing to the head of the snake.
+	switch (itSecond->dir)
+	{
+	case DIR_UP:
+		it->y -= v;
+		break;
+	case DIR_DOWN:
+		it->y += v;
+		break;
+	case DIR_RIGHT:
+		it->x += v;
+		break;
+	case DIR_LEFT:
+		it->x -= v;
+		break;
+	default:
+		break;
+	}
+
+	//Put new coord depending on the direction the player is going, this new coord is given by the function GetNewCoord().
+	//Coord tmp = GetNewCoord();
+	//itSecond->x = tmp.x;
+	//itSecond->y = tmp.y;
 }
 
 void Snake::drawSnake() {
@@ -174,10 +292,10 @@ void Snake::drawSnake() {
 
 	tail = coordsRegister.end();					//Tail position to make the for stop at that point
 	tail--;
-	
+
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//Draw head depending on what key the user is pressing. W: Upwards | A: Left | D: Rigt | S: Downwards
-	switch (IM.actualDir) {
+	switch (Directions headDir = dirRegister.begin()->dir) {
 	case DIR_UP:
 
 		break;
@@ -198,29 +316,29 @@ void Snake::drawSnake() {
 		next++;
 		//DIAGONAL MOVEMENT
 		if (now->x == prev->x) {							//VERTICAL MOVEMENT
-			if (now->x == next->x)								{ /*VERTICAL LINE*/ }
-			else if (prev->x < next->x && prev->y > next->y)	{ /*Diagonal UPRIGHT	VERTICAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y > next->y)	{ /*Diagonal UPLEFT		VERTICAL MOVEMENT*/ }
-			else if (prev->x < next->x && prev->y < next->y)	{ /*Diagonal DOWNRIGHT  VERTICAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y < next->y)	{ /*Diagonal DOWNLEFT	VERTICAL MOVEMENT*/ }
+			if (now->x == next->x) { /*VERTICAL LINE*/ }
+			else if (prev->x < next->x && prev->y > next->y) { /*Diagonal UPRIGHT	VERTICAL MOVEMENT*/ }
+			else if (prev->x > next->x && prev->y > next->y) { /*Diagonal UPLEFT		VERTICAL MOVEMENT*/ }
+			else if (prev->x < next->x && prev->y < next->y) { /*Diagonal DOWNRIGHT  VERTICAL MOVEMENT*/ }
+			else if (prev->x > next->x && prev->y < next->y) { /*Diagonal DOWNLEFT	VERTICAL MOVEMENT*/ }
 		}
-		else if(now->y == prev->y){							//HORIZONTAL MOVEMENT
-			if (now->y == next->y)								{ /*HORIZONTAL LINE*/ }
-			else if (prev->x < next->x && prev->y > next->y)	{ /*Diagonal UPRIGHT		HORIZONTAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y > next->y)	{ /*Diagonal UPLEFT			HORIZONTAL MOVEMENT*/ }
-			else if (prev->x < next->x && prev->y < next->y)	{ /*Diagonal DOWNRIGHT	    HORIZONTAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y < next->y)	{ /*Diagonal DOWNLEFT    	HORIZONTAL MOVEMENT*/ }
+		else if (now->y == prev->y) {							//HORIZONTAL MOVEMENT
+			if (now->y == next->y) { /*HORIZONTAL LINE*/ }
+			else if (prev->x < next->x && prev->y > next->y) { /*Diagonal UPRIGHT		HORIZONTAL MOVEMENT*/ }
+			else if (prev->x > next->x && prev->y > next->y) { /*Diagonal UPLEFT			HORIZONTAL MOVEMENT*/ }
+			else if (prev->x < next->x && prev->y < next->y) { /*Diagonal DOWNRIGHT	    HORIZONTAL MOVEMENT*/ }
+			else if (prev->x > next->x && prev->y < next->y) { /*Diagonal DOWNLEFT    	HORIZONTAL MOVEMENT*/ }
 		}
 		prev++;
 	}
 
 	//Draw the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
 	if (now->x == prev->x) {													//VERTICAL MOVEMENT
-		if (now->y < prev->y) { /* Draw tail in a DOWNWARDS direction */	}	//Downwards
-		if (now->y > prev->y) { /* Draw tail in a UPWARDS direction */		}	//Upwards
-	} 
-	else  {																		//HORIZONTAL MOVEMENT
-		if (now->x < prev->x) { /* Draw tail going RIGHT */					}	//Right
-		if (now->x > prev->x) {	/* Draw tail going LEFT */					}	//Left
+		if (now->y < prev->y) { /* Draw tail in a DOWNWARDS direction */ }	//Downwards
+		if (now->y > prev->y) { /* Draw tail in a UPWARDS direction */ }	//Upwards
+	}
+	else {																		//HORIZONTAL MOVEMENT
+		if (now->x < prev->x) { /* Draw tail going RIGHT */ }	//Right
+		if (now->x > prev->x) {	/* Draw tail going LEFT */ }	//Left
 	}
 }

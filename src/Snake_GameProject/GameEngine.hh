@@ -19,22 +19,40 @@
 namespace GameEngine {
 	//! Loads main resources such as game images and fonts
 	void LoadMedia(void) {
-		// ttf - fonts
+		//=========================	FONTS (.ttf files) ==========================
 		R.LoadFont<FontID::PIXEL>("ttf/minecraft.ttf", 40);
 
-		// sprites - images
+		//======================== SPRITES (.png files) =========================
+		//SNAKE'S HEAD
+		R.LoadTexture<ObjectID::SNAKE_HEAD_UP>("gfx/snake_head_up.png");
+		R.LoadTexture<ObjectID::SNAKE_HEAD_RIGHT>("gfx/snake_head_right.png");
+		R.LoadTexture<ObjectID::SNAKE_HEAD_DOWN>("gfx/snake_head_down.png");
+		R.LoadTexture<ObjectID::SNAKE_HEAD_LEFT>("gfx/snake_head_left.png");
+		//SNAKE'S BODY
+		R.LoadTexture<ObjectID::SNAKE_BODY_HOR>("gfx/snake_body_hor.png");
+		R.LoadTexture<ObjectID::SNAKE_BODY_VERT>("gfx/snake_body_vert.png");
+		//SNAKE'S CURVES
+		R.LoadTexture<ObjectID::SNAKE_CURVE_1>("gfx/snake_curve_1.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_2>("gfx/snake_curve_2.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_3>("gfx/snake_curve_3.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_4>("gfx/snake_curve_4.png");
+		//SNAKE'S TAIL
+		R.LoadTexture<ObjectID::SNAKE_TAIL_UP>("gfx/snake_tail_up.png");
+		R.LoadTexture<ObjectID::SNAKE_TAIL_RIGHT>("gfx/snake_tail_right.png");
+		R.LoadTexture<ObjectID::SNAKE_TAIL_DOWN>("gfx/snake_tail_down.png");
+		R.LoadTexture<ObjectID::SNAKE_TAIL_LEFT>("gfx/snake_tail_left.png");
+		//EMPTY CELL
 		R.LoadTexture<ObjectID::EMPTY>("gfx/empty.png");
-		R.LoadTexture<ObjectID::SNAKE_HEAD>("gfx/snake_cabeza.png");
-		R.LoadTexture<ObjectID::SNAKE_BODY>("gfx/snake_recto.png");
-		R.LoadTexture<ObjectID::SNAKE_CURVE>("gfx/snake_curva.png");
-		R.LoadTexture<ObjectID::SNAKE_TAIL>("gfx/snake_cola.png");
-		R.LoadTexture<ObjectID::FRUIT>("gfx/fruta.png");
-		R.LoadTexture<ObjectID::WALL>("gfx/pared.png");
-
+		//FRUIT
+		R.LoadTexture<ObjectID::FRUIT>("gfx/fruit.png");
+		//WALL
+		R.LoadTexture<ObjectID::WALL>("gfx/wall.png");
+		// BUTTONS
 		R.LoadTexture<ObjectID::BUTTON_EASY>("gfx/button_easy.png");
 		R.LoadTexture<ObjectID::BUTTON_MEDIUM>("gfx/button_medium.png");
 		R.LoadTexture<ObjectID::BUTTON_HARD>("gfx/button_hard.png");
 		R.LoadTexture<ObjectID::BUTTON_EXIT>("gfx/button_exit.png");
+		//BGs
 		R.LoadTexture<ObjectID::BG_00>("gfx/fondo.png"); // MAIN MENU BG
 		R.LoadTexture<ObjectID::BG_01>("gfx/empty.png"); // IG BG
 
