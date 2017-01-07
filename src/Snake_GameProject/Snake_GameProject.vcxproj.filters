@@ -96,6 +96,9 @@
     <ClInclude Include="Score.hh">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="SnakeGrid.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">

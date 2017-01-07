@@ -1,151 +1,63 @@
 ﻿  main.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): error C2011: 'FruitSpawn': nueva definición del tipo 'class'
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ')' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2079: 'Coord' utiliza class 'FruitSpawn' sin definir
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ';' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2059: error de sintaxis: ';'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2059: error de sintaxis: '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2143: error de sintaxis: falta ';' delante de '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(38): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(44): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(46): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.hh(22): error C2079: 'EasyMode::fruit' utiliza class 'FruitSpawn' sin definir
   MainMenu.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): error C2011: 'FruitSpawn': nueva definición del tipo 'class'
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ')' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2079: 'Coord' utiliza class 'FruitSpawn' sin definir
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ';' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2059: error de sintaxis: ';'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2059: error de sintaxis: '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2143: error de sintaxis: falta ';' delante de '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(38): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(44): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(46): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.hh(22): error C2079: 'EasyMode::fruit' utiliza class 'FruitSpawn' sin definir
   EasyMode.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): error C2011: 'FruitSpawn': nueva definición del tipo 'class'
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(26): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ')' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2079: 'Coord' utiliza class 'FruitSpawn' sin definir
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2146: error de sintaxis: falta ';' delante del identificador 'f_coords'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C2059: error de sintaxis: ')'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(29): error C2059: error de sintaxis: ';'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2059: error de sintaxis: '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(30): error C2143: error de sintaxis: falta ';' delante de '}'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2143: error de sintaxis: falta ';' delante de '{'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(32): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(38): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(39): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(44): error C2027: uso del tipo 'FruitSpawn' sin definir
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(6): note: vea la declaración de 'FruitSpawn'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2065: 'fruitCoord': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.x' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): error C2228: el operando izquierdo de '.y' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(45): note: el tipo es 'unknown-type'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\fruitspawn.hh(46): error C2065: 'fruit': identificador no declarado
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.hh(22): error C2079: 'EasyMode::fruit' utiliza class 'FruitSpawn' sin definir
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(29): error C2228: el operando izquierdo de '.fruitCoord' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(29): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(29): error C2228: el operando izquierdo de '.SpawnFruit' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(29): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(39): error C2228: el operando izquierdo de '.EatFruit' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(39): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(41): error C2228: el operando izquierdo de '.fruitCoord' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(41): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(41): error C2228: el operando izquierdo de '.SpawnFruit' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(41): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(44): error C2228: el operando izquierdo de '.fruitCoord' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(44): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(61): error C2228: el operando izquierdo de '.drawFruit' debe tener class/struct/union
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(61): note: el tipo es 'int'
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(61): error C2228: el operando izquierdo de '.Draw' debe tener class/struct/union
   Generando código...
+main.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(int,int)" (??0Coord@@QEAA@HH@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(void)" (??0Coord@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Direction::Direction(enum Directions)" (??0Direction@@QEAA@W4Directions@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Direction::Direction(void)" (??0Direction@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(class Coord)" (??0FruitSpawn@@QEAA@VCoord@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(void)" (??0FruitSpawn@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(class Coord,int)" (??0Snake@@QEAA@VCoord@@H@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(void)" (??0Snake@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(int,int)" (??0SnakeGrid@@QEAA@HH@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0SnakeGrid@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(void)" (??0SnakeGrid@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Coord::~Coord(void)" (??1Coord@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Direction::~Direction(void)" (??1Direction@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::~FruitSpawn(void)" (??1FruitSpawn@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl Snake::~Snake(void)" (??1Snake@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::~SnakeGrid(void)" (??1SnakeGrid@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CheckPosition(class Coord)" (?CheckPosition@Snake@@QEAA_NVCoord@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl SnakeGrid::DrawGrid(void)" (?DrawGrid@SnakeGrid@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: bool __cdecl FruitSpawn::EatFruit(class Snake)" (?EatFruit@FruitSpawn@@QEAA_NVSnake@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: class Coord __cdecl Snake::GetHeadCoord(void)" (?GetHeadCoord@Snake@@QEAA?AVCoord@@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: enum Directions __cdecl Snake::GetNewDir(void)" (?GetNewDir@Snake@@QEAA?AW4Directions@@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::IncreaseSize(void)" (?IncreaseSize@Snake@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(void)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Score::addScore(void)" (?addScore@Score@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Score::decreaseLifes(void)" (?decreaseLifes@Score@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: struct Sprite __cdecl FruitSpawn::drawFruit(void)" (?drawFruit@FruitSpawn@@QEAA?AUSprite@@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::drawSnake(void)" (?drawSnake@Snake@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::moveDir(void)" (?moveDir@Snake@@QEAAXXZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::moveSnake(void)" (?moveSnake@Snake@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(int,int)" (??0Coord@@QEAA@HH@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(void)" (??0Coord@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Direction::Direction(enum Directions)" (??0Direction@@QEAA@W4Directions@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Direction::Direction(void)" (??0Direction@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(class Coord)" (??0FruitSpawn@@QEAA@VCoord@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(void)" (??0FruitSpawn@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(class Coord,int)" (??0Snake@@QEAA@VCoord@@H@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(void)" (??0Snake@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(int,int)" (??0SnakeGrid@@QEAA@HH@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0SnakeGrid@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(void)" (??0SnakeGrid@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Coord::~Coord(void)" (??1Coord@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Direction::~Direction(void)" (??1Direction@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::~FruitSpawn(void)" (??1FruitSpawn@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::~Snake(void)" (??1Snake@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::~SnakeGrid(void)" (??1SnakeGrid@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CheckPosition(class Coord)" (?CheckPosition@Snake@@QEAA_NVCoord@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl SnakeGrid::DrawGrid(void)" (?DrawGrid@SnakeGrid@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: bool __cdecl FruitSpawn::EatFruit(class Snake)" (?EatFruit@FruitSpawn@@QEAA_NVSnake@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: class Coord __cdecl Snake::GetHeadCoord(void)" (?GetHeadCoord@Snake@@QEAA?AVCoord@@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: enum Directions __cdecl Snake::GetNewDir(void)" (?GetNewDir@Snake@@QEAA?AW4Directions@@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::IncreaseSize(void)" (?IncreaseSize@Snake@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(void)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Score::addScore(void)" (?addScore@Score@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Score::decreaseLifes(void)" (?decreaseLifes@Score@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: struct Sprite __cdecl FruitSpawn::drawFruit(void)" (?drawFruit@FruitSpawn@@QEAA?AUSprite@@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::drawSnake(void)" (?drawSnake@Snake@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::moveDir(void)" (?moveDir@Snake@@QEAAXXZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::moveSnake(void)" (?moveSnake@Snake@@QEAAXXZ) en EasyMode.obj
+C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente

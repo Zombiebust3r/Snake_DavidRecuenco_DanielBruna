@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <functional>
 
+
 #define SCREEN_FPS 120.0f
 #define SCREEN_TICKS_PER_FRAME (1000.0f / SCREEN_FPS)
 
@@ -30,5 +31,6 @@ private:
 private:
 	float m_deltatime{ .0f }; // Delta time in seconds
 	Uint32 lastTime{ SDL_GetTicks() }; // Last time sample in seconds
+public:
 	float renderTime{ 0.0f }; // Time control for rendering
 };

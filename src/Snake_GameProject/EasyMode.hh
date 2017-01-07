@@ -5,6 +5,7 @@
 #include "FruitSpawn.hh"
 #include "Snake.hh"
 #include "Score.hh"
+#include "SnakeGrid.hh"
 
 // GameScene class with the main gameplay mode
 class EasyMode : public Scene {
@@ -15,9 +16,14 @@ public:
 	void OnExit(void) override;
 	void Update(void) override;
 	void Draw(void) override;
+	
+	int fruitsEaten;
+	int mode;
+
 private:
-	bool beatedHighScore;
 	Score score;
+	bool beatedHighScore;
+	SnakeGrid grid;
 	Snake snake;
 	FruitSpawn fruit;
 	Sprite background;

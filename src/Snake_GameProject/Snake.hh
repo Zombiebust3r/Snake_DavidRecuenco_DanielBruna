@@ -84,7 +84,7 @@ public:
 	void moveSnake();
 
 	//Draws the snake parts. Depending on the position of each part compared to the one before and next.
-	Sprite drawSnake();
+	void drawSnake();
 
 private:
 	Sprite snakeImg;
@@ -286,7 +286,7 @@ void Snake::moveSnake() {
 	//itSecond->y = tmp.y;
 }
 
-Sprite Snake::drawSnake() {
+void Snake::drawSnake() {
 	//Need 3 iterators: Prev Now Next.	(The snake starts with 3 parts)
 	list<Coord>::iterator prev, now, next, tail;
 	prev = coordsRegister.begin();					//First position of the list
@@ -301,19 +301,19 @@ Sprite Snake::drawSnake() {
 	switch (Directions headDir = dirRegister.begin()->dir) {
 	case DIR_UP:
 		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_UP };
-		return snakeImg;
+		snakeImg.Draw();
 		break;
 	case DIR_RIGHT:
 		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_RIGHT };
-		return snakeImg;
+		snakeImg.Draw();
 		break;
 	case DIR_LEFT:
 		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_LEFT };
-		return snakeImg;
+		snakeImg.Draw();
 		break;
 	case DIR_DOWN:
 		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_DOWN };
-		return snakeImg;
+		snakeImg.Draw();
 		break;
 	}
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -323,31 +323,31 @@ Sprite Snake::drawSnake() {
 		next++;
 																								//DIAGONAL MOVEMENT
 		if (now->x == prev->x) {																//VERTICAL MOVEMENT
-			if (now->x == next->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_BODY_VERT }; return snakeImg;
+			if (now->x == next->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_BODY_VERT }; snakeImg.Draw();
 			}
-			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; return snakeImg; }
-			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; return snakeImg; }
-			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; return snakeImg; }
-			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; return snakeImg; }
+			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; snakeImg.Draw(); }
+			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; snakeImg.Draw(); }
+			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; snakeImg.Draw(); }
+			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; snakeImg.Draw(); }
 		}
 		else if (now->y == prev->y) {															//HORIZONTAL MOVEMENT
-			if (now->y == next->y) { snakeImg = { {}, ObjectID::SNAKE_BODY_HOR }; return snakeImg;
+			if (now->y == next->y) { snakeImg = { {}, ObjectID::SNAKE_BODY_HOR }; snakeImg.Draw();
 			}
-			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; return snakeImg; }
-			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; return snakeImg; }
-			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; return snakeImg; }
-			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; return snakeImg; }
+			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; snakeImg.Draw(); }
+			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; snakeImg.Draw(); }
+			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; snakeImg.Draw(); }
+			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; snakeImg.Draw(); }
 		}
 		prev++;
 	}
 
 	//Draws the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
 	if (now->x == prev->x) {																	//VERTICAL MOVEMENT
-		if (now->y < prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_DOWN }; return snakeImg; }	//Downwards
-		if (now->y > prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_UP }; return snakeImg;	}	//Upwards
+		if (now->y < prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_DOWN }; snakeImg.Draw(); }	//Downwards
+		if (now->y > prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_UP }; snakeImg.Draw();	}	//Upwards
 	}
 	else {																						//HORIZONTAL MOVEMENT
-		if (now->x < prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_RIGHT }; return snakeImg;}	//Right
-		if (now->x > prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_LEFT }; return snakeImg; }	//Left
+		if (now->x < prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_RIGHT }; snakeImg.Draw();}	//Right
+		if (now->x > prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_LEFT }; snakeImg.Draw(); }	//Left
 	}
 }

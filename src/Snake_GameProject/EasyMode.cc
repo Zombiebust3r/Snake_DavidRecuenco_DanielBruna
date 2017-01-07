@@ -8,7 +8,7 @@
 using namespace Logger;
 using namespace std;
 
-EasyMode::EasyMode(void) {
+EasyMode::EasyMode(void) : grid(){
 	// obj = { { posX, posY, ancho, alto }, ID };
 	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
 	//		########  ####  ######  ##     ##    ###    
@@ -25,6 +25,8 @@ EasyMode::~EasyMode(void) {
 }
 
 void EasyMode::OnEntry(void) {
+	mode = 1;
+	fruitsEaten = 0;
 	beatedHighScore = false;
 	fruit.fruitCoord = fruit.SpawnFruit();
 	score.score = 0;
@@ -59,7 +61,7 @@ void EasyMode::Draw(void) {
 
 	background.Draw();
 	fruit.drawFruit().Draw();
-	snake.drawSnake().Draw();
+	snake.drawSnake();
 
 
 	GUI::DrawTextBlended<FontID::PIXEL>("Score: " + to_string(score.score), //Message
