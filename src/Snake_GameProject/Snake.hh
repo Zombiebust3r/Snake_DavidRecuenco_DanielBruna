@@ -2,6 +2,10 @@
 #include <list>
 #include <iostream>
 #include "InputManager.hh"
+#include "Sprite.hh"
+
+//Width and height of every cell
+#define CELL 14
 
 //==========================================================================
 //==					  How should this be used						  ==
@@ -49,8 +53,7 @@ Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class Snake
-{
+class Snake {
 public:
 	list<Coord> coordsRegister;
 	list<Direction> dirRegister;
@@ -78,13 +81,13 @@ public:
 	void moveDir();
 
 	//Move the coords inside the list. This list is gonna be used to draw and check colisions with objects.
-
-private:
 	void moveSnake();
 
 	//Draws the snake parts. Depending on the position of each part compared to the one before and next.
-public:
-	void drawSnake();
+	Sprite drawSnake();
+
+private:
+	Sprite snakeImg;
 };
 Snake::Snake() {
 	coordsRegister.push_back({ 4, 1 });
@@ -283,7 +286,7 @@ void Snake::moveSnake() {
 	//itSecond->y = tmp.y;
 }
 
-void Snake::drawSnake() {
+Sprite Snake::drawSnake() {
 	//Need 3 iterators: Prev Now Next.	(The snake starts with 3 parts)
 	list<Coord>::iterator prev, now, next, tail;
 	prev = coordsRegister.begin();					//First position of the list
@@ -297,16 +300,20 @@ void Snake::drawSnake() {
 	//Draw head depending on what key the user is pressing. W: Upwards | A: Left | D: Rigt | S: Downwards
 	switch (Directions headDir = dirRegister.begin()->dir) {
 	case DIR_UP:
-
+		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_UP };
+		return snakeImg;
 		break;
 	case DIR_RIGHT:
-
+		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_RIGHT };
+		return snakeImg;
 		break;
 	case DIR_LEFT:
-
+		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_LEFT };
+		return snakeImg;
 		break;
 	case DIR_DOWN:
-
+		snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_DOWN };
+		return snakeImg;
 		break;
 	}
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -314,31 +321,33 @@ void Snake::drawSnake() {
 	//Draws all the parts between the head and the tail.
 	for (now; now != tail; now++) {
 		next++;
-		//DIAGONAL MOVEMENT
-		if (now->x == prev->x) {							//VERTICAL MOVEMENT
-			if (now->x == next->x) { /*VERTICAL LINE*/ }
-			else if (prev->x < next->x && prev->y > next->y) { /*Diagonal UPRIGHT	VERTICAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y > next->y) { /*Diagonal UPLEFT		VERTICAL MOVEMENT*/ }
-			else if (prev->x < next->x && prev->y < next->y) { /*Diagonal DOWNRIGHT  VERTICAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y < next->y) { /*Diagonal DOWNLEFT	VERTICAL MOVEMENT*/ }
+																								//DIAGONAL MOVEMENT
+		if (now->x == prev->x) {																//VERTICAL MOVEMENT
+			if (now->x == next->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_BODY_VERT }; return snakeImg;
+			}
+			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; return snakeImg; }
+			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; return snakeImg; }
+			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; return snakeImg; }
+			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; return snakeImg; }
 		}
-		else if (now->y == prev->y) {							//HORIZONTAL MOVEMENT
-			if (now->y == next->y) { /*HORIZONTAL LINE*/ }
-			else if (prev->x < next->x && prev->y > next->y) { /*Diagonal UPRIGHT		HORIZONTAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y > next->y) { /*Diagonal UPLEFT			HORIZONTAL MOVEMENT*/ }
-			else if (prev->x < next->x && prev->y < next->y) { /*Diagonal DOWNRIGHT	    HORIZONTAL MOVEMENT*/ }
-			else if (prev->x > next->x && prev->y < next->y) { /*Diagonal DOWNLEFT    	HORIZONTAL MOVEMENT*/ }
+		else if (now->y == prev->y) {															//HORIZONTAL MOVEMENT
+			if (now->y == next->y) { snakeImg = { {}, ObjectID::SNAKE_BODY_HOR }; return snakeImg;
+			}
+			else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_4 }; return snakeImg; }
+			else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_3 }; return snakeImg; }
+			else if (prev->x < next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; return snakeImg; }
+			else if (prev->x > next->x && prev->y < next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; return snakeImg; }
 		}
 		prev++;
 	}
 
-	//Draw the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
-	if (now->x == prev->x) {													//VERTICAL MOVEMENT
-		if (now->y < prev->y) { /* Draw tail in a DOWNWARDS direction */ }	//Downwards
-		if (now->y > prev->y) { /* Draw tail in a UPWARDS direction */ }	//Upwards
+	//Draws the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
+	if (now->x == prev->x) {																	//VERTICAL MOVEMENT
+		if (now->y < prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_DOWN }; return snakeImg; }	//Downwards
+		if (now->y > prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_UP }; return snakeImg;	}	//Upwards
 	}
-	else {																		//HORIZONTAL MOVEMENT
-		if (now->x < prev->x) { /* Draw tail going RIGHT */ }	//Right
-		if (now->x > prev->x) {	/* Draw tail going LEFT */ }	//Left
+	else {																						//HORIZONTAL MOVEMENT
+		if (now->x < prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_RIGHT }; return snakeImg;}	//Right
+		if (now->x > prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_LEFT }; return snakeImg; }	//Left
 	}
 }

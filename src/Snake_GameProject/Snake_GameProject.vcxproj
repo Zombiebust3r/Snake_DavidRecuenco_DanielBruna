@@ -53,7 +53,6 @@
     <ClCompile Include="main.cc" />
     <ClCompile Include="MainMenu.cc" />
     <ClCompile Include="MediumMode.cc" />
-    <ClCompile Include="Snake.cc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{995B3CD1-8844-4660-B6D4-CFC4D6014DBB}</ProjectGuid>

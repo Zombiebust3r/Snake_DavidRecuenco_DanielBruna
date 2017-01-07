@@ -4,11 +4,6 @@
 #include "ID.hh"
 #include "InputManager.hh"
 #include "EasyMode.hh"
-#include "FruitSpawn.hh"
-
-// DIMENSIONES DE LOS ELEMENTOS: 14 x 14 (source: 64 x 64)
-// Al ser iguales, solo se hace un define para ambas longitudes
-#define CELL 14 // dimensiones IN GAME
 
 using namespace Logger;
 using namespace std;
@@ -31,7 +26,7 @@ EasyMode::~EasyMode(void) {
 
 void EasyMode::OnEntry(void) {
 	beatedHighScore = false;
-	fruit.SpawnFruit();
+	fruit.fruitCoord = fruit.SpawnFruit();
 	score.score = 0;
 	score.lifes = 3;
 }
@@ -43,7 +38,7 @@ void EasyMode::Update(void) {
 	snake.moveSnake();
 	if (fruit.EatFruit(snake)) {
 		do {
-			fruit.SpawnFruit();
+			fruit.fruitCoord = fruit.SpawnFruit();
 			score.addScore();
 		}
 		while (snake.CheckPosition(fruit.fruitCoord));
@@ -52,10 +47,10 @@ void EasyMode::Update(void) {
 	/*if (snake.CheckPosition(map.walls)) { // Esto de map.walls ES UN EJEMPLO DE USO
 		score.decreaseLifes();
 	}*/
+
 	static MouseCoords mouseCoords(0, 0);
 	if (IM.IsMouseDown<MOUSE_BUTTON_LEFT>()) {
 		mouseCoords = IM.GetMouseCoords();
-		
 	}
 }
 
@@ -63,8 +58,8 @@ void EasyMode::Draw(void) {
 	//DRAW MAP
 
 	background.Draw();
-	fruit.drawFruit();
-	snake.drawSnake();
+	fruit.drawFruit().Draw();
+	snake.drawSnake().Draw();
 
 
 	GUI::DrawTextBlended<FontID::PIXEL>("Score: " + to_string(score.score), //Message

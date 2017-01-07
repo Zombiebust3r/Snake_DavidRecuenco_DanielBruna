@@ -18,6 +18,8 @@ enum class ObjectID : const int {
 	WALL,																// Wall IDs
 	BG_00, BG_01,														// Background IDs
 	BUTTON_EASY, BUTTON_MEDIUM, BUTTON_HARD, BUTTON_EXIT				// Main Menu's ID's buttons
+
+	, CANDY_EMPTY, CELL_EMPTY, CANDY_MAX								// Así no se queja el grid.hh
 };
 inline std::ostream &operator<<(std::ostream &os, const ObjectID &id) { return os << int(id); };
 inline std::istream &operator>>(std::istream &is, ObjectID &id) { return is >> reinterpret_cast<int&>(id); };
