@@ -54,6 +54,9 @@ Coord::Coord(int p_x, int p_y) : x(p_x), y(p_y) {}
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class Snake {
+private:
+	int gridCols, gridRows;
+
 public:
 	list<Coord> coordsRegister;
 	list<Direction> dirRegister;
@@ -74,6 +77,10 @@ public:
 	//bool CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation);
 
 	bool CheckPosition(Coord p_fruitCoord);
+
+	void GiveGridLimits(int p_cols, int p_rows);
+
+	bool CollisionsWallSnake();
 
 	//This functions recieves the INPUT KEY that is being pressed from the INPUT MANAGER in order to know what is gonna be the direction the snake should go.
 	Directions GetNewDir();
@@ -142,6 +149,30 @@ bool Snake::CheckPosition(Coord p_fruitCoord) {
 		if (p_fruitCoord.x == it->x && p_fruitCoord.y == it->y) return true;
 	}
 	return false;
+
+}
+
+void Snake::GiveGridLimits(int p_cols, int p_rows) {
+	gridCols = p_cols;
+	gridRows = p_rows;
+
+}
+
+bool Snake::CollisionsWallSnake() {
+	//auto it = coordsRegister.end();
+	auto headIt = coordsRegister.begin();
+	if (headIt->x == 0 || headIt->x == gridCols || headIt->y == 0 || headIt->y == gridRows) {	//
+		return true;
+	}
+	else {
+		for (auto it = coordsRegister.end();; it != coordsRegister.begin()) {
+			it--;
+			if (headIt->x == it->x && headIt->y == it->y) {	//
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
 

@@ -25,6 +25,7 @@ EasyMode::~EasyMode(void) {
 }
 
 void EasyMode::OnEntry(void) {
+	snake.GiveGridLimits(5, 5);
 	mode = 1;
 	fruitsEaten = 0;
 	beatedHighScore = false;
@@ -60,6 +61,7 @@ void EasyMode::Draw(void) {
 	//DRAW MAP
 
 	background.Draw();
+	grid.DrawGrid();
 	fruit.drawFruit().Draw();
 	snake.drawSnake();
 
