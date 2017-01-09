@@ -1,7 +1,4 @@
-﻿  main.cc
-  MainMenu.cc
-  EasyMode.cc
-  Generando código...
+﻿  MainMenu.cc
 main.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(int,int)" (??0Coord@@QEAA@HH@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Coord::Coord(void)" (??0Coord@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Direction::Direction(enum Directions)" (??0Direction@@QEAA@W4Directions@@@Z) en EasyMode.obj
@@ -10,23 +7,24 @@ main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn
 main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(void)" (??0FruitSpawn@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(class Coord,int)" (??0Snake@@QEAA@VCoord@@H@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(void)" (??0Snake@@QEAA@XZ) en EasyMode.obj
-main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(int,int)" (??0SnakeGrid@@QEAA@HH@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0SnakeGrid@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(enum Mode)" (??0SnakeGrid@@QEAA@W4Mode@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(void)" (??0SnakeGrid@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Coord::~Coord(void)" (??1Coord@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Direction::~Direction(void)" (??1Direction@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::~FruitSpawn(void)" (??1FruitSpawn@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl Snake::~Snake(void)" (??1Snake@@QEAA@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::~SnakeGrid(void)" (??1SnakeGrid@@QEAA@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl FruitSpawn::CheckFruits(enum Mode)" (?CheckFruits@FruitSpawn@@QEAAXW4Mode@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CheckPosition(class Coord)" (?CheckPosition@Snake@@QEAA_NVCoord@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CollisionsWallSnake(void)" (?CollisionsWallSnake@Snake@@QEAA_NXZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: void __cdecl SnakeGrid::DrawGrid(void)" (?DrawGrid@SnakeGrid@@QEAAXXZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: bool __cdecl FruitSpawn::EatFruit(class Snake)" (?EatFruit@FruitSpawn@@QEAA_NVSnake@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: class Coord __cdecl Snake::GetHeadCoord(void)" (?GetHeadCoord@Snake@@QEAA?AVCoord@@XZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: enum Directions __cdecl Snake::GetNewDir(void)" (?GetNewDir@Snake@@QEAA?AW4Directions@@XZ) en EasyMode.obj
-main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::GiveGridLimits(int,int)" (?GiveGridLimits@Snake@@QEAAXHH@Z) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::GiveGridLimits(enum Mode)" (?GiveGridLimits@Snake@@QEAAXW4Mode@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: void __cdecl Snake::IncreaseSize(void)" (?IncreaseSize@Snake@@QEAAXXZ) en EasyMode.obj
-main.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(void)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@XZ) en EasyMode.obj
+main.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(enum Mode)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@W4Mode@@@Z) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: void __cdecl Score::addScore(void)" (?addScore@Score@@QEAAXXZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: void __cdecl Score::decreaseLifes(void)" (?decreaseLifes@Score@@QEAAXXZ) en EasyMode.obj
 main.obj : error LNK2005: ya se definió "public: struct Sprite __cdecl FruitSpawn::drawFruit(void)" (?drawFruit@FruitSpawn@@QEAA?AUSprite@@XZ) en EasyMode.obj
@@ -41,23 +39,24 @@ MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitS
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::FruitSpawn(void)" (??0FruitSpawn@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(class Coord,int)" (??0Snake@@QEAA@VCoord@@H@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::Snake(void)" (??0Snake@@QEAA@XZ) en EasyMode.obj
-MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(int,int)" (??0SnakeGrid@@QEAA@HH@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0SnakeGrid@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(enum Mode)" (??0SnakeGrid@@QEAA@W4Mode@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::SnakeGrid(void)" (??0SnakeGrid@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Coord::~Coord(void)" (??1Coord@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Direction::~Direction(void)" (??1Direction@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl FruitSpawn::~FruitSpawn(void)" (??1FruitSpawn@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl Snake::~Snake(void)" (??1Snake@@QEAA@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: __cdecl SnakeGrid::~SnakeGrid(void)" (??1SnakeGrid@@QEAA@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl FruitSpawn::CheckFruits(enum Mode)" (?CheckFruits@FruitSpawn@@QEAAXW4Mode@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CheckPosition(class Coord)" (?CheckPosition@Snake@@QEAA_NVCoord@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: bool __cdecl Snake::CollisionsWallSnake(void)" (?CollisionsWallSnake@Snake@@QEAA_NXZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl SnakeGrid::DrawGrid(void)" (?DrawGrid@SnakeGrid@@QEAAXXZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: bool __cdecl FruitSpawn::EatFruit(class Snake)" (?EatFruit@FruitSpawn@@QEAA_NVSnake@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: class Coord __cdecl Snake::GetHeadCoord(void)" (?GetHeadCoord@Snake@@QEAA?AVCoord@@XZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: enum Directions __cdecl Snake::GetNewDir(void)" (?GetNewDir@Snake@@QEAA?AW4Directions@@XZ) en EasyMode.obj
-MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::GiveGridLimits(int,int)" (?GiveGridLimits@Snake@@QEAAXHH@Z) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::GiveGridLimits(enum Mode)" (?GiveGridLimits@Snake@@QEAAXW4Mode@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Snake::IncreaseSize(void)" (?IncreaseSize@Snake@@QEAAXXZ) en EasyMode.obj
-MainMenu.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(void)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@XZ) en EasyMode.obj
+MainMenu.obj : error LNK2005: ya se definió "public: class Coord __cdecl FruitSpawn::SpawnFruit(enum Mode)" (?SpawnFruit@FruitSpawn@@QEAA?AVCoord@@W4Mode@@@Z) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Score::addScore(void)" (?addScore@Score@@QEAAXXZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: void __cdecl Score::decreaseLifes(void)" (?decreaseLifes@Score@@QEAAXXZ) en EasyMode.obj
 MainMenu.obj : error LNK2005: ya se definió "public: struct Sprite __cdecl FruitSpawn::drawFruit(void)" (?drawFruit@FruitSpawn@@QEAA?AUSprite@@XZ) en EasyMode.obj

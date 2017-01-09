@@ -8,7 +8,6 @@
 #include "System.hh"
 
 #pragma region GAME_SCENES
-#include "GameScene.hh"
 #include "MainMenu.hh"
 #include "EasyMode.hh"
 #include "MediumMode.hh"

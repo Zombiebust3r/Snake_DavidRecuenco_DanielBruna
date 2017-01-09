@@ -8,6 +8,7 @@
 #include "Sprite.hh"
 #include "Resource.hh"
 #include "Logger.hh"
+#include "Score.hh"
 
 using namespace std;
 using namespace Logger;
@@ -18,7 +19,7 @@ public:
 	SnakeGrid();
 	~SnakeGrid();
 	SnakeGrid(string filename);
-	SnakeGrid(int p_cols, int p_rows);
+	SnakeGrid(Mode mode);
 	void DrawGrid();
 
 private:
@@ -63,11 +64,14 @@ SnakeGrid::SnakeGrid(string filename) {	//NOT IN USE
 	}
 }
 
-SnakeGrid::SnakeGrid(int p_cols, int p_rows) {
+SnakeGrid::SnakeGrid(Mode mode) {
 	cols = 9;	//X
 	rows = 6;	//Y
-	cols *= p_cols;
-	rows *= p_rows;
+	switch (mode) {
+	case EASY: cols *= 5; rows *= 5; break;
+	case MEDIUM: cols *= 2; rows *= 2; break;
+	case HARD: cols *= 1; rows *= 1; break;
+	}
 	myGridSprites.resize(cols);
 	//Loop to iterate inside myGridSprites in order to fill it. It will not have any obstacles inside.
 	for (int i = 0; i <= cols-1; i++) {

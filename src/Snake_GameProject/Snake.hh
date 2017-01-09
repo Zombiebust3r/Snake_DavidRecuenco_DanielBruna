@@ -3,6 +3,7 @@
 #include <iostream>
 #include "InputManager.hh"
 #include "Sprite.hh"
+#include "Score.hh"
 
 //Width and height of every cell
 #define CELL 14
@@ -78,7 +79,7 @@ public:
 
 	bool CheckPosition(Coord p_fruitCoord);
 
-	void GiveGridLimits(int p_cols, int p_rows);
+	void GiveGridLimits(Mode mode);
 
 	bool CollisionsWallSnake();
 
@@ -152,10 +153,12 @@ bool Snake::CheckPosition(Coord p_fruitCoord) {
 
 }
 
-void Snake::GiveGridLimits(int p_cols, int p_rows) {
-	gridCols = p_cols;
-	gridRows = p_rows;
-
+void Snake::GiveGridLimits(Mode mode) {
+	switch (mode) {
+	case EASY: gridCols = 5; gridRows = 5; break;
+	case MEDIUM: gridCols = 2; gridRows = 2; break;
+	case HARD: gridCols = 1; gridRows = 1; break;
+	}
 }
 
 bool Snake::CollisionsWallSnake() {

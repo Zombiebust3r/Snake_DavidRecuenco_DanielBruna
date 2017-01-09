@@ -1,5 +1,9 @@
 #pragma once
-#include "FruitSpawn.hh"
+
+
+enum Mode {
+	EASY, MEDIUM, HARD
+};
 
 class Score {
 public:
@@ -12,7 +16,7 @@ public:
 };
 
 void Score::addScore() {
-	score += 10;
+	score += 100;
 	if (score > highscore) {
 		highscore = score;
 	}

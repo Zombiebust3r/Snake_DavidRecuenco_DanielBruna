@@ -8,7 +8,7 @@
 using namespace Logger;
 using namespace std;
 
-EasyMode::EasyMode(void) : grid(){
+EasyMode::EasyMode(void) : grid(EASY){
 	// obj = { { posX, posY, ancho, alto }, ID };
 	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
 	//		########  ####  ######  ##     ##    ###    
@@ -25,11 +25,11 @@ EasyMode::~EasyMode(void) {
 }
 
 void EasyMode::OnEntry(void) {
-	snake.GiveGridLimits(5, 5);
+	snake.GiveGridLimits(EASY);
 	mode = 1;
 	fruitsEaten = 0;
 	beatedHighScore = false;
-	fruit.fruitCoord = fruit.SpawnFruit();
+	fruit.fruitCoord = fruit.SpawnFruit(EASY);
 	score.score = 0;
 	score.lifes = 3;
 }
@@ -41,10 +41,10 @@ void EasyMode::Update(void) {
 	snake.moveSnake();
 	if (fruit.EatFruit(snake)) {
 		do {
-			fruit.fruitCoord = fruit.SpawnFruit();
-			score.addScore();
+			fruit.fruitCoord = fruit.SpawnFruit(EASY);
 		}
 		while (snake.CheckPosition(fruit.fruitCoord));
+		score.addScore();
 	}
 	//CheckColls with walls ==> if true -1 vida.
 	/*if (snake.CheckPosition(map.walls)) { // Esto de map.walls ES UN EJEMPLO DE USO
