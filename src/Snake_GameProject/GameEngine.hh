@@ -31,10 +31,10 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::SNAKE_BODY_HOR>("gfx/snake_body_hor.png");
 		R.LoadTexture<ObjectID::SNAKE_BODY_VERT>("gfx/snake_body_vert.png");
 		//SNAKE'S CURVES
-		R.LoadTexture<ObjectID::SNAKE_CURVE_1>("gfx/snake_curve_1.png");
-		R.LoadTexture<ObjectID::SNAKE_CURVE_2>("gfx/snake_curve_2.png");
-		R.LoadTexture<ObjectID::SNAKE_CURVE_3>("gfx/snake_curve_3.png");
-		R.LoadTexture<ObjectID::SNAKE_CURVE_4>("gfx/snake_curve_4.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_1>("gfx/snake_curve1.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_2>("gfx/snake_curve2.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_3>("gfx/snake_curve3.png");
+		R.LoadTexture<ObjectID::SNAKE_CURVE_4>("gfx/snake_curve4.png");
 		//SNAKE'S TAIL
 		R.LoadTexture<ObjectID::SNAKE_TAIL_UP>("gfx/snake_tail_up.png");
 		R.LoadTexture<ObjectID::SNAKE_TAIL_RIGHT>("gfx/snake_tail_right.png");

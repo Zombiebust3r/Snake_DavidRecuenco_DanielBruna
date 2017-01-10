@@ -1,8 +1,6 @@
 #include "GUI.hh"
 #include "System.hh"
-#include "Logger.hh"
 #include "ID.hh"
-#include "InputManager.hh"
 #include "EasyMode.hh"
 
 using namespace Logger;
@@ -32,13 +30,17 @@ void EasyMode::OnEntry(void) {
 	fruit.fruitCoord = fruit.SpawnFruit(EASY);
 	score.score = 0;
 	score.lifes = 3;
+	tiempoEjecutar = 2000;
 }
 
 void EasyMode::OnExit(void) {
 }
 
 void EasyMode::Update(void) {
-	snake.moveSnake();
+	if (SDL_GetTicks() >= tiempoEjecutar) { tiempoEjecutar += 1000; snake.moveSnake();
+	}
+	//snake.moveDir();
+	snake.GetKeys();
 	if (fruit.EatFruit(snake)) {
 		do {
 			fruit.fruitCoord = fruit.SpawnFruit(EASY);

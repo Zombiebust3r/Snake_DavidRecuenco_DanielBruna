@@ -47,19 +47,9 @@ enum KeyButton : int {
 	KEY_BUTTON_RSHIFT = SDLK_RSHIFT,
 };
 
-//! Identifies directional keys as 'W' and Up arrow for the Direction UP, etc.
-enum Directions {
-	 DIR_UP,		// W & UP:		SDLK_w || SDLK_UP
-	 DIR_DOWN,		// S & DOWN:	SDLK_s || SDLK_DOWN
-	 DIR_RIGHT,		// D & RIGHT:	SDLK_d || SDLK_RIGHT
-	 DIR_LEFT		// A & LEFT:	SDLK_a || SDLK_LEFT
-};
-
 //! Controls all input info and stores it to be used in other pats of the code as a Singleton.
 class InputManager {
 public:
-	Directions actualDir;
-
 	/**
 	 * Creates a Singleton instance of the InputManager class.
 	 * @return A reference to the static instance.
@@ -84,15 +74,6 @@ public:
 				case SDL_KEYDOWN:			m_inputValues.push(&(m_inputMap[evnt.key.keysym.sym] = (evnt.key.repeat) ? InputValue::HOLD : InputValue::DOWN)); break; // Push the event key down to the queue of processes
 				case SDL_KEYUP:				m_inputValues.push(&(m_inputMap[evnt.key.keysym.sym] = InputValue::UP)); break; // Push the event key up to the queue of processes
 
-				// Directional values
-				case SDLK_w:				actualDir = DIR_UP; break;
-				case SDLK_UP:				actualDir = DIR_UP; break;
-				case SDLK_d:				actualDir = DIR_RIGHT; break;
-				case SDLK_RIGHT:			actualDir = DIR_RIGHT; break;
-				case SDLK_a:				actualDir = DIR_LEFT; break;
-				case SDLK_LEFT:				actualDir = DIR_LEFT; break;
-				case SDLK_s:				actualDir = DIR_DOWN; break;
-				case SDLK_DOWN:				actualDir = DIR_DOWN; break;
 			}
 		}
 	}

@@ -1,11 +1,7 @@
 #pragma once
-#include "Sprite.hh"
 #include "Scene.hh"
 
 #include "FruitSpawn.hh"
-#include "Snake.hh"
-#include "Score.hh"
-#include "SnakeGrid.hh"
 
 // GameScene class with the main gameplay mode
 class EasyMode : public Scene {
@@ -20,11 +16,13 @@ public:
 	int fruitsEaten;
 	int mode;
 
-private:
+//private:
 	Score score;
 	bool beatedHighScore;
 	SnakeGrid grid;
 	Snake snake;
 	FruitSpawn fruit;
 	Sprite background;
+
+	int tiempoEjecutar;
 };

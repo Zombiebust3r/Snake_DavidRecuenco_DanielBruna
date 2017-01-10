@@ -15,3 +15,9 @@ struct Sprite {
 	ObjectID objectID;
 	void Draw() { R.Push(objectID, transform); };
 };
+
+struct Sprite2 {
+	Transform2 transform;
+	ObjectID objectID;
+	void Draw() { R.Push2(objectID, transform); };
+};

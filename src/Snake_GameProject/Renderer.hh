@@ -80,7 +80,24 @@ public:
 		SDL_FreeSurface(surface);
 		SDL_DestroyTexture(texture);
 	}
+
+	void Push2(SDL_Surface *surface, Transform2 &transform) {
+		ASSERT(surface != nullptr);
+		auto texture = SDL_CreateTextureFromSurface(m_SDLRenderer, surface);
+		transform.x -= surface->w / 2;
+		transform.y -= surface->h / 2;
+		transform.w *= surface->w;
+		transform.h *= surface->h;
+		ASSERT(!SDL_RenderCopy(m_SDLRenderer, texture, nullptr, &transform()));
+		SDL_FreeSurface(surface);
+		SDL_DestroyTexture(texture);
+	}
+
 	void Push(const ObjectID &objectID, const Transform &transform) {
+		ASSERT(!SDL_RenderCopy(m_SDLRenderer, m_textureData[objectID], nullptr, &transform()));
+	}
+
+	void Push2(const ObjectID &objectID, const Transform2 &transform) {
 		ASSERT(!SDL_RenderCopy(m_SDLRenderer, m_textureData[objectID], nullptr, &transform()));
 	}
 	void Clear(void) const { SDL_RenderClear(m_SDLRenderer); };
