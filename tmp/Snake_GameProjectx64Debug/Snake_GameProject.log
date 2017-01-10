@@ -1,13 +1,7 @@
-﻿  main.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): warning C4474: "printf": se pasaron demasiados argumentos para la cadena de formato
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): note: los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
-  MainMenu.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): warning C4474: "printf": se pasaron demasiados argumentos para la cadena de formato
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): note: los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
-  EasyMode.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): warning C4474: "printf": se pasaron demasiados argumentos para la cadena de formato
-  c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\snake.hh(301): note: los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(40): warning C4018: '>=': no coinciden signed/unsigned
+﻿  MediumMode.cc
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\mediummode.cc(39): warning C4018: '>=': no coinciden signed/unsigned
+  HardMode.cc
+c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\hardmode.cc(38): warning C4018: '>=': no coinciden signed/unsigned
   Generando código...
   Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe
   Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.pdb (Full PDB)

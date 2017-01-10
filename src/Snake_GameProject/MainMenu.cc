@@ -11,12 +11,12 @@
 #define B_H 50 //button height
 
 // BUTTONS.X = ((GAME_WIDTH/2)-(BUTTON_WIDTH/2)) = ((1024/2)-(300/2)) = 512-150 = 362
-#define B_X 362
+#define B_X 380
 using namespace Logger;
 
 
 MainMenu::MainMenu(void) {
-	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_00 };
+	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::BG_01 };
 	
 
 	

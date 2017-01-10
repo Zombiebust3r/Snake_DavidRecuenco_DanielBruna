@@ -6,21 +6,22 @@ namespace {
 		int highscore;
 		int lifes;
 
-		void addScore();
-		void decreaseLifes();
+		void addScore(int fruits);
+		bool decreaseLifes();
 	};
 
-	void Score::addScore() {
-		score += 100;
+	void Score::addScore(int fruits) {
+		score += 100*fruits;
 		if (score > highscore) {
 			highscore = score;
 		}
 	}
 
-	void Score::decreaseLifes() {
+	bool Score::decreaseLifes() {
 		lifes--;
 		if (lifes == 0) {
-			// LA SNAKE MUERE, DE UNA MANERA MUY HORRIBLE
+			return true;
 		}
+		return false;
 	}
 }

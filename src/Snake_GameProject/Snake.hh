@@ -64,7 +64,7 @@ namespace {
 	class Snake {
 	private:
 		int gridCols, gridRows;
-		
+
 	public:
 		list<Coord> coordsRegister;
 		list<Direction> dirRegister;
@@ -90,6 +90,8 @@ namespace {
 
 		void GiveGridLimits(Mode mode);
 
+		void SetSnakeInicialPos();
+
 		bool CollisionsWallSnake();
 
 		//This functions recieves the INPUT KEY that is being pressed from the INPUT MANAGER in order to know what is gonna be the direction the snake should go.
@@ -103,18 +105,22 @@ namespace {
 		//Draws the snake parts. Depending on the position of each part compared to the one before and next.
 		void drawSnake();
 
+		void ResetSnakeOnDeath();
+
 	private:
 		Sprite snakeImg;
 	};
 	Snake::Snake() {
-		coordsRegister.push_back({ 4, 1 });
-		coordsRegister.push_back({ 3, 1 });
-		coordsRegister.push_back({ 2, 1 });
+		coordsRegister.push_back({ 20, 10 });
+		coordsRegister.push_back({ 19, 10 });
+		coordsRegister.push_back({ 18, 10 });
 		dirRegister.push_back(DIR_RIGHT);
 		dirRegister.push_back(DIR_RIGHT);
 		dirRegister.push_back(DIR_RIGHT);
+		actualDirection = DIR_RIGHT;
 		v = 1;
-		printf("SnakeCreada");
+		gridCols = 15;
+		gridRows = 8;
 	}
 	Snake::~Snake() {}
 
@@ -125,22 +131,27 @@ namespace {
 		dirRegister.push_back(DIR_RIGHT);
 		dirRegister.push_back(DIR_RIGHT);
 		dirRegister.push_back(DIR_RIGHT);
+		actualDirection = DIR_RIGHT;
+		gridCols = 15;
+		gridRows = 8;
 	}
 
 	void Snake::GetKeys() {
-		if (IM.IsKeyDown<'w'>()) {
+		if (IM.IsKeyDown<'w'>() && actualDirection != DIR_DOWN) {
 			actualDirection = DIR_UP;
-		} else if (IM.IsKeyDown<'a'>()) {
+		}
+		else if (IM.IsKeyDown<'a'>() && actualDirection != DIR_RIGHT) {
 			actualDirection = DIR_LEFT;
-		} else if (IM.IsKeyDown<'s'>()) {
+		}
+		else if (IM.IsKeyDown<'s'>() && actualDirection != DIR_UP) {
 			actualDirection = DIR_DOWN;
-		} else if (IM.IsKeyDown<'d'>()) {
+		}
+		else if (IM.IsKeyDown<'d'>() && actualDirection != DIR_LEFT) {
 			actualDirection = DIR_RIGHT;
 		}
 	}
 
 	void Snake::IncreaseSize() {
-		printf("come manzana");
 		Coord headCoord;
 		headCoord = GetHeadCoord();
 		Directions headDir;
@@ -178,22 +189,34 @@ namespace {
 
 	void Snake::GiveGridLimits(Mode mode) {
 		switch (mode) {
-		case EASY: gridCols = 5; gridRows = 5; break;
-		case MEDIUM: gridCols = 2; gridRows = 2; break;
-		case HARD: gridCols = 1; gridRows = 1; break;
+		case EASY: gridCols *= 5; gridRows *= 5; break;
+		case MEDIUM: gridCols *= 2; gridRows *= 2; break;
+		case HARD: gridCols *= 1; gridRows *= 1; break;
+		}
+	}
+
+	void Snake::SetSnakeInicialPos() {
+		actualDirection = DIR_RIGHT;
+		int tmpRows, tmpCols;
+		tmpRows = gridRows / 2;
+		tmpCols = gridCols / 2;
+		for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
+			it->x = tmpCols--;
+			it->y = tmpRows;
 		}
 	}
 
 	bool Snake::CollisionsWallSnake() {
 		//auto it = coordsRegister.end();
 		auto headIt = coordsRegister.begin();
-		if (headIt->x == 0 || headIt->x == gridCols || headIt->y == 0 || headIt->y == gridRows) {	//
+		if (headIt->x == 1 || headIt->x == gridCols || headIt->y == 1 || headIt->y == gridRows) {	//
 			return true;
 		}
+
 		else {
-			for (auto it = coordsRegister.end();; it != coordsRegister.begin()) {
+			for (auto it = coordsRegister.end(); it != headIt;) {
 				it--;
-				if (headIt->x == it->x && headIt->y == it->y) {	//
+				if (headIt->x == it->x && headIt->y == it->y && headIt != it) {	//
 					return true;
 				}
 			}
@@ -202,7 +225,7 @@ namespace {
 
 	}
 
-	////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
 	Directions Snake::GetNewDir() {
 		//Get new coord depending on the key the user is pressing --> use INPUT MANAGER
 		Directions newDirection = DIR_UP;
@@ -216,7 +239,6 @@ namespace {
 		//printf("newDir %d\n", newDirection);
 		return newDirection;
 	}
-	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 	//Returns the coords of the head of the snake.
@@ -226,37 +248,6 @@ namespace {
 		tmp.y = coordsRegister.begin()->y;
 		return tmp;
 	}
-
-
-	/*bool Snake::CompareCoordsXY(int coord1, int coord2, comparisons desiredOperation) {
-	switch (desiredOperation)
-	{
-	case EQUAL:
-	return coord1 == coord2;
-	break;
-	case DIFF:
-	return coord1 != coord2;
-	break;
-	case SMALLER:
-	return coord1 < coord2;
-	break;
-	case HIGHER:
-	return coord1 > coord2;
-	break;
-	default:
-	break;
-	}
-	}*/
-
-	/*
-	static int Snake::CheckPosition(int f_x, int f_y) {
-	for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
-	if (f_x == it->x) return true;
-	if (f_y == it->y) return true;
-	}
-	return false;
-	}
-	*/
 
 	void Snake::moveDir() {
 		auto itSecond = dirRegister.end();
@@ -290,7 +281,6 @@ namespace {
 	}
 
 	void Snake::moveSnake() {
-		printf("Snake MOVE: x:%d y:%d\n", coordsRegister.begin()->x, coordsRegister.begin()->y);
 		moveDir();
 		auto itSecond = dirRegister.end();
 		itSecond--;
@@ -298,7 +288,6 @@ namespace {
 		it--;
 
 		for (it; it != coordsRegister.begin(); it--) {
-			printf("dir:%d ->TAIL->Body ", itSecond->dir, itSecond->dir);
 			switch (itSecond->dir)
 			{
 			case DIR_UP:
@@ -355,27 +344,27 @@ namespace {
 		tail = coordsRegister.end();					//Tail position to make the for stop at that point
 		tail--;
 
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
 		//Draw head depending on what key the user is pressing. W: Upwards | A: Left | D: Rigt | S: Downwards
 		switch (Directions headDir = dirRegister.begin()->dir) {
 		case DIR_UP:
-			snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_UP };
+			snakeImg = { { ((CELL / 2) + (prev->x*CELL)),((120 + (CELL / 2)) + (prev->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_UP };
 			snakeImg.Draw();
 			break;
 		case DIR_RIGHT:
-			snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_RIGHT };
+			snakeImg = { { ((CELL / 2) + (prev->x*CELL)),((120 + (CELL / 2)) + (prev->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_RIGHT };
 			snakeImg.Draw();
 			break;
 		case DIR_LEFT:
-			snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_LEFT };
+			snakeImg = { { ((CELL / 2) + (prev->x*CELL)),((120 + (CELL / 2)) + (prev->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_LEFT };
 			snakeImg.Draw();
 			break;
 		case DIR_DOWN:
-			snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_DOWN };
+			snakeImg = { { ((CELL / 2) + (prev->x*CELL)),((120 + (CELL / 2)) + (prev->y*CELL)), CELL, CELL }, ObjectID::SNAKE_HEAD_DOWN };
 			snakeImg.Draw();
 			break;
 		}
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
 
 		//Draws all the parts between the head and the tail.
 		for (now; now != tail; now++) {
@@ -392,7 +381,7 @@ namespace {
 			}
 			else if (now->y == prev->y) {															//HORIZONTAL MOVEMENT
 				if (now->y == next->y) {
-					snakeImg = { {}, ObjectID::SNAKE_BODY_HOR }; snakeImg.Draw();
+					snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_BODY_HOR }; snakeImg.Draw();
 				}
 				else if (prev->x < next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_1 }; snakeImg.Draw(); }
 				else if (prev->x > next->x && prev->y > next->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_CURVE_2 }; snakeImg.Draw(); }
@@ -404,12 +393,28 @@ namespace {
 
 		//Draws the tail depending on the previous part of the snake. At this point now should be pointing to the last position(tail) and prev should be pointing the one before.
 		if (now->x == prev->x) {																	//VERTICAL MOVEMENT
-			if (now->y < prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_DOWN }; snakeImg.Draw(); }	//Downwards
-			if (now->y > prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_UP }; snakeImg.Draw(); }	//Upwards
+			if (now->y < prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_UP }; snakeImg.Draw(); }	//Downwards
+			if (now->y > prev->y) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_DOWN }; snakeImg.Draw(); }	//Upwards
 		}
 		else {																						//HORIZONTAL MOVEMENT
-			if (now->x < prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_RIGHT }; snakeImg.Draw(); }	//Right
-			if (now->x > prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_LEFT }; snakeImg.Draw(); }	//Left
+			if (now->x < prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_LEFT }; snakeImg.Draw(); }	//Right
+			if (now->x > prev->x) { snakeImg = { { ((CELL / 2) + (now->x*CELL)),((120 + (CELL / 2)) + (now->y*CELL)), CELL, CELL }, ObjectID::SNAKE_TAIL_RIGHT }; snakeImg.Draw(); }	//Left
 		}
 	}
+
+	void Snake::ResetSnakeOnDeath() {
+		coordsRegister.clear();
+		dirRegister.clear();
+		coordsRegister.push_back({ 1, 1 });
+		coordsRegister.push_back({ 1, 1 });
+		coordsRegister.push_back({ 1, 1 });
+
+		SetSnakeInicialPos();
+
+		dirRegister.push_back(DIR_RIGHT);
+		dirRegister.push_back(DIR_RIGHT);
+		dirRegister.push_back(DIR_RIGHT);
+
+	}
+
 }

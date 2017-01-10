@@ -16,9 +16,8 @@ public:
 	int fruitsEaten;
 	int mode;
 
-//private:
 	Score score;
-	bool beatedHighScore;
+	int highscore;
 	SnakeGrid grid;
 	Snake snake;
 	FruitSpawn fruit;
