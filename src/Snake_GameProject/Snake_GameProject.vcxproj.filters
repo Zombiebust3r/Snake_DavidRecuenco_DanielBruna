@@ -99,6 +99,9 @@
     <ClInclude Include="SnakeGrid.hh">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="Countdown.hh">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">

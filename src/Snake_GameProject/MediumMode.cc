@@ -30,6 +30,7 @@ void MediumMode::OnEntry(void) {
 	score.score = 0;
 	score.lifes = 3;
 	tiempoEjecutar = 2000;
+	timer.time = W.GetWidth();
 }
 
 void MediumMode::OnExit(void) {
@@ -38,15 +39,16 @@ void MediumMode::OnExit(void) {
 void MediumMode::Update(void) {
 	if (SDL_GetTicks() >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
-		tiempoEjecutar += 150;
+		tiempoEjecutar += 170;
 		snake.moveSnake();
-		if (snake.CollisionsWallSnake()) {
+		if (snake.CollisionsWallSnake() || timer.timer(MEDIUM)) {
 			snake.ResetSnakeOnDeath();
 			if (score.decreaseLifes()) {
 				SM.SetCurScene<MainMenu>();
 			}
 			if (score.score > highscore) highscore = score.score;
 			score.score = 0;
+			timer.resetTimer();
 		}
 	}
 	snake.GetKeys();
@@ -68,6 +70,7 @@ void MediumMode::Draw(void) {
 
 	background.Draw();
 	grid.DrawGrid();
+	timer.drawTimer();
 	fruit.drawFruit().Draw();
 	snake.drawSnake();
 

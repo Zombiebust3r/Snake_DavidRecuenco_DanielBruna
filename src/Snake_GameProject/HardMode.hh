@@ -21,6 +21,6 @@ public:
 	Snake snake;
 	FruitSpawn fruit;
 	Sprite background;
-
+	Countdown timer;
 	int tiempoEjecutar;
 };

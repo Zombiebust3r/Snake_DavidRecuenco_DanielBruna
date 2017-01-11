@@ -4,6 +4,7 @@
 #include "SnakeGrid.hh"
 #include "Score.hh"
 #include "System.hh"
+#include "Countdown.hh"
 
 
 //==========================================================================
@@ -27,10 +28,10 @@ enum comparisons
 
 //! Identifies directional keys as 'W' and Up arrow for the Direction UP, etc.
 enum Directions {
-	DIR_UP,		// W & UP:		SDLK_w || SDLK_UP
-	DIR_DOWN,		// S & DOWN:	SDLK_s || SDLK_DOWN
-	DIR_RIGHT,		// D & RIGHT:	SDLK_d || SDLK_RIGHT
-	DIR_LEFT		// A & LEFT:	SDLK_a || SDLK_LEFT
+	DIR_UP,			// W & UP
+	DIR_DOWN,		// S & DOWN
+	DIR_RIGHT,		// D & RIGHT
+	DIR_LEFT		// A & LEFT
 };
 
 namespace {
@@ -137,16 +138,16 @@ namespace {
 	}
 
 	void Snake::GetKeys() {
-		if (IM.IsKeyDown<'w'>() && actualDirection != DIR_DOWN) {
+		if ((IM.IsKeyDown<SDLK_UP>() || IM.IsKeyDown<'w'>()) && actualDirection != DIR_DOWN) {
 			actualDirection = DIR_UP;
 		}
-		else if (IM.IsKeyDown<'a'>() && actualDirection != DIR_RIGHT) {
+		else if ((IM.IsKeyDown<SDLK_LEFT>() || IM.IsKeyDown<'a'>()) && actualDirection != DIR_RIGHT) {
 			actualDirection = DIR_LEFT;
 		}
-		else if (IM.IsKeyDown<'s'>() && actualDirection != DIR_UP) {
+		else if ((IM.IsKeyDown<SDLK_DOWN>() || IM.IsKeyDown<'s'>()) && actualDirection != DIR_UP) {
 			actualDirection = DIR_DOWN;
 		}
-		else if (IM.IsKeyDown<'d'>() && actualDirection != DIR_LEFT) {
+		else if ((IM.IsKeyDown<SDLK_RIGHT>() || IM.IsKeyDown<'d'>()) && actualDirection != DIR_LEFT) {
 			actualDirection = DIR_RIGHT;
 		}
 	}

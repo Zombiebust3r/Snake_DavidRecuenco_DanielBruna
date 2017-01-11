@@ -37,16 +37,16 @@ namespace {
 	Coord FruitSpawn::SpawnFruit(Mode mode) {
 		switch (mode) {
 		case EASY:
-			fruitCoord.x = rand() % 74 + 2;
-			fruitCoord.y = rand() % 39 + 2;
+			fruitCoord.x = rand() % 71 + 3;
+			fruitCoord.y = rand() % 37 + 3;
 			break;
 		case MEDIUM:
-			fruitCoord.x = rand() % 29 + 2;
-			fruitCoord.y = rand() % 15 + 2;
+			fruitCoord.x = rand() % 27 + 3;
+			fruitCoord.y = rand() % 13 + 3;
 			break;
 		case HARD:
-			fruitCoord.x = rand() % 14 + 2;
-			fruitCoord.y = rand() % 7 + 2;
+			fruitCoord.x = rand() % 14 + 3;
+			fruitCoord.y = rand() % 5 + 3;
 			break;
 		}
 		return fruitCoord;

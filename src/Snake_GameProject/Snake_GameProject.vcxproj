@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Assert.hh" />
     <ClInclude Include="Color.hh" />
+    <ClInclude Include="Countdown.hh" />
     <ClInclude Include="EasyMode.hh" />
     <ClInclude Include="FruitSpawn.hh" />
     <ClInclude Include="GameEngine.hh" />

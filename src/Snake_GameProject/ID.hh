@@ -17,7 +17,8 @@ enum class ObjectID : const int {
 	EMPTY,																// Empty Cell IDs
 	WALL,																// Wall IDs
 	BG_00, BG_01,														// Background IDs
-	BUTTON_EASY, BUTTON_MEDIUM, BUTTON_HARD, BUTTON_EXIT				// Main Menu's ID's buttons
+	BUTTON_EASY, BUTTON_MEDIUM, BUTTON_HARD, BUTTON_EXIT,				// Main Menu's ID's buttons
+	TIMEBAR																// Time Bar ID
 
 	, CANDY_EMPTY, CELL_EMPTY, CANDY_MAX								// Así no se queja el grid.hh
 };

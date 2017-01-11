@@ -41,7 +41,7 @@ namespace {
 	SnakeGrid::SnakeGrid()
 	{
 		baseCols = 15; //X
-		baseRows = 12; //Y
+		baseRows = 8; //Y
 		myGridSprites.resize(baseCols);
 		//Loop to iterate inside myGridSprites in order to fill it. It will not have any obstacles inside.
 		for (int i = 0; i <= baseCols - 1; i++) {
