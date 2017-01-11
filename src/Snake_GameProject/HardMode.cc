@@ -43,6 +43,8 @@ void HardMode::Update(void) {
 		if (snake.CollisionsWallSnake() || timer.timer(HARD)) {
 			snake.ResetSnakeOnDeath();
 			if (score.decreaseLifes()) {
+				timer.resetTimer();
+				score.lifes = 3; // Life reset
 				SM.SetCurScene<MainMenu>();
 			}
 			if (score.score > highscore) highscore = score.score;

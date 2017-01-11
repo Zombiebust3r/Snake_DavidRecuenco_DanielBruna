@@ -41,12 +41,12 @@ namespace {
 			fruitCoord.y = rand() % 37 + 3;
 			break;
 		case MEDIUM:
-			fruitCoord.x = rand() % 27 + 3;
-			fruitCoord.y = rand() % 13 + 3;
+			fruitCoord.x = rand() % 26 + 3;
+			fruitCoord.y = rand() % 12 + 3;
 			break;
 		case HARD:
-			fruitCoord.x = rand() % 14 + 3;
-			fruitCoord.y = rand() % 5 + 3;
+			fruitCoord.x = rand() % 11 + 3;
+			fruitCoord.y = rand() % 4 + 3;
 			break;
 		}
 		return fruitCoord;

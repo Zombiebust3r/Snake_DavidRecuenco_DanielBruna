@@ -237,7 +237,6 @@ namespace {
 		case DIR_LEFT: newDirection = DIR_LEFT; break;
 		case DIR_DOWN: newDirection = DIR_DOWN; break;
 		}
-		//printf("newDir %d\n", newDirection);
 		return newDirection;
 	}
 
@@ -309,7 +308,6 @@ namespace {
 
 			itSecond--;
 		}
-		printf("\n");
 		//This is for the head of the snake since its not included inside the for. "it" and "itSecond" are pointing to the head of the snake.
 		switch (itSecond->dir)
 		{

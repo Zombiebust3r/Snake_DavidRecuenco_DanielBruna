@@ -1,7 +1,5 @@
-﻿  main.cc
-  MediumMode.cc
+﻿  MediumMode.cc
 c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\mediummode.cc(40): warning C4018: '>=': no coinciden signed/unsigned
-  MainMenu.cc
   HardMode.cc
 c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\hardmode.cc(39): warning C4018: '>=': no coinciden signed/unsigned
   EasyMode.cc
