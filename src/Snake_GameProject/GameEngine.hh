@@ -51,6 +51,8 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::BUTTON_MEDIUM>("gfx/button_medium.png");
 		R.LoadTexture<ObjectID::BUTTON_HARD>("gfx/button_hard.png");
 		R.LoadTexture<ObjectID::BUTTON_EXIT>("gfx/button_exit.png");
+		R.LoadTexture<ObjectID::BUTTON_RANKING>("gfx/button_ranking.png");
+		R.LoadTexture<ObjectID::BUTTON_RETURN>("gfx/button_return.png");
 		// BAR
 		R.LoadTexture<ObjectID::TIMEBAR>("gfx/timebar.png");
 		//BGs

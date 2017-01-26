@@ -12,9 +12,14 @@ public:
 	void Update(void) override;
 	void Draw(void) override;
 private:
+	bool rankingMenu;
+
 	Sprite background;
+	Sprite ranking_bg;
 	Sprite easy;
 	Sprite medium;
 	Sprite hard;
+	Sprite ranking;
+	Sprite return_b;
 	Sprite exit;
 };

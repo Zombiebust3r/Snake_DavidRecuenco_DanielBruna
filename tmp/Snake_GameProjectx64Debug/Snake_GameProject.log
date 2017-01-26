@@ -1,12 +1,4 @@
-﻿  main.cc
-  MediumMode.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\mediummode.cc(43): warning C4018: '>=': no coinciden signed/unsigned
-  MainMenu.cc
-  HardMode.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\hardmode.cc(41): warning C4018: '>=': no coinciden signed/unsigned
-  EasyMode.cc
-c:\users\davidro\documents\visual studio 2015\projects\snake_davidrecuenco_danielbruna\src\snake_gameproject\easymode.cc(40): warning C4018: '>=': no coinciden signed/unsigned
-  Generando código...
+﻿  MainMenu.cc
   Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.exe
   Snake_GameProject.vcxproj -> C:\Users\Davidro\documents\visual studio 2015\Projects\Snake_DavidRecuenco_DanielBruna\\bin\x64Debug\Snake_GameProject.pdb (Full PDB)
   0 File(s) copied

@@ -38,7 +38,7 @@ namespace {
 		switch (mode) {
 		case EASY:
 			fruitCoord.x = rand() % 71 + 3;
-			fruitCoord.y = rand() % 37 + 3;
+			fruitCoord.y = rand() % 36 + 3;
 			break;
 		case MEDIUM:
 			fruitCoord.x = rand() % 26 + 3;
