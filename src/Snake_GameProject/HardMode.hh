@@ -13,7 +13,7 @@ public:
 	void Draw(void) override;
 
 	int fruitsEaten;
-	int mode;
+	// No necesita en fruitCount ya que no hace falta saber cuantas se come seguidas para saber si pasar al siguiente nivel (no hay siguiente nivel)
 
 	Score score;
 	int highscore;

@@ -15,7 +15,6 @@ public:
 	
 	int fruitsEaten;
 	int fruitCount;
-	int mode;
 
 	Score score;
 	int highscore;

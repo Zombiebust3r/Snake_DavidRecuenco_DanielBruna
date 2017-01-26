@@ -23,13 +23,12 @@ void HardMode::OnEntry(void) {
 	snake.GiveGridLimits(HARD);
 	snake.SetSnakeInicialPos(HARD);
 	grid.SetGrid(HARD);
-	mode = 1;
 	fruitsEaten = 0;
 	highscore = 0;
 	fruit.fruitCoord = fruit.SpawnFruit(HARD);
 	score.score = 0;
 	score.lifes = 3;
-	tiempoEjecutar = 2000;
+	tiempoEjecutar = 100;
 	tiempoInicial = SDL_GetTicks();
 	timer.time = W.GetWidth();
 }
@@ -38,24 +37,22 @@ void HardMode::OnExit(void) {
 }
 
 void HardMode::Update(void) {
-	if (SDL_GetTicks() >= tiempoEjecutar) {
+	if ((SDL_GetTicks() - tiempoInicial) >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
-		tiempoEjecutar += 170;
-		if (tiempoEjecutar - tiempoInicial >= 170) {
-			tiempoInicial = tiempoEjecutar;
-			snake.moveSnake();
-			if (snake.CollisionsWallSnake() || timer.timer(HARD)) {
-				snake.ResetSnakeOnDeath(HARD);
-				if (score.decreaseLifes()) {
-					timer.resetTimer();
-					if(score.score > highscore) cout << "Best score: " << score.score << endl;
-					else if (score.score < highscore) cout << "Best score: " << highscore << endl;
-					SM.SetCurScene<MainMenu>();
-				}
-				if (score.score > highscore) highscore = score.score;
-				score.score = 0;
+		tiempoEjecutar += 150;
+		snake.moveSnake();
+		if (snake.CollisionsWallSnake() || timer.timer(HARD)) {
+			snake.ResetSnakeOnDeath(HARD);
+			fruitsEaten = 0; //Fruit count reset
+			if (score.decreaseLifes()) {
 				timer.resetTimer();
+				if (score.score > highscore) cout << "Best score: " << score.score << endl;
+				else if (score.score < highscore) cout << "Best score: " << highscore << endl;
+				SM.SetCurScene<MainMenu>();
 			}
+			if (score.score > highscore) highscore = score.score;
+			score.score = 0;
+			timer.resetTimer();
 		}
 	}
 	snake.GetKeys();
