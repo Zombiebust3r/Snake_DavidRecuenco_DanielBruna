@@ -78,9 +78,9 @@ namespace {
 		baseCols = 15; //X
 		baseRows = 8; //Y
 		switch (mode) {
-		case EASY: cols = baseCols * 5; rows = baseRows * 5; printf("EASY"); break;
-		case MEDIUM: cols = baseCols * 2; rows = baseRows * 2; printf("MEDIUM"); break;
-		case HARD: cols = baseCols * 1; rows = baseRows * 1; printf("HARD"); break;
+		case EASY: cols = baseCols * 5; rows = baseRows * 5; break;
+		case MEDIUM: cols = baseCols * 2; rows = baseRows * 2; break;
+		case HARD: cols = baseCols * 1; rows = baseRows * 1; break;
 		}
 		myGridSprites.resize(cols);
 		//Loop to iterate inside myGridSprites in order to fill it. It will not have any obstacles inside.
@@ -97,9 +97,9 @@ namespace {
 
 	void SnakeGrid::SetGrid(Mode mode) {
 		switch (mode) {
-		case EASY: cols = baseCols * 5; rows = baseRows * 5; printf("EASY"); break;
-		case MEDIUM: cols = baseCols * 2; rows = baseRows * 2; printf("MEDIUM"); break;
-		case HARD: cols = baseCols * 1; rows = baseRows * 1; printf("HARD"); break;
+		case EASY: cols = baseCols * 5; rows = baseRows * 5; break;
+		case MEDIUM: cols = baseCols * 2; rows = baseRows * 2; break;
+		case HARD: cols = baseCols * 1; rows = baseRows * 1; break;
 		}
 		myGridSprites.resize(cols);
 		//Loop to iterate inside myGridSprites in order to fill it. It will not have any obstacles inside.

@@ -91,7 +91,7 @@ namespace {
 
 		void GiveGridLimits(Mode mode);
 
-		void SetSnakeInicialPos();
+		void SetSnakeInicialPos(Mode mode);
 
 		bool CollisionsWallSnake();
 
@@ -106,7 +106,7 @@ namespace {
 		//Draws the snake parts. Depending on the position of each part compared to the one before and next.
 		void drawSnake();
 
-		void ResetSnakeOnDeath();
+		void ResetSnakeOnDeath(Mode mode);
 
 	private:
 		Sprite snakeImg;
@@ -189,22 +189,57 @@ namespace {
 	}
 
 	void Snake::GiveGridLimits(Mode mode) {
-		switch (mode) {
+		switch (mode) { //Cols = 15, Rows = 8
 		case EASY: gridCols *= 5; gridRows *= 5; break;
 		case MEDIUM: gridCols *= 2; gridRows *= 2; break;
 		case HARD: gridCols *= 1; gridRows *= 1; break;
 		}
 	}
 
-	void Snake::SetSnakeInicialPos() {
+	void Snake::SetSnakeInicialPos(Mode mode) {
 		actualDirection = DIR_RIGHT;
+		auto it = coordsRegister.begin();
+		switch(mode) {
+		case EASY:		// CABEZA
+			it->x = 26;
+			it->y = 20;
+			it++;		// CUERPO
+			it->x = 25;
+			it->y = 20;
+			it++;		// COLA
+			it->x = 24;
+			it->y = 20;
+			break;
+
+		case MEDIUM:		// CABEZA
+			it->x = 12;
+			it->y = 8;
+			it++;		// CUERPO
+			it->x = 11;
+			it->y = 8;
+			it++;		// COLA
+			it->x = 10;
+			it->y = 8;
+			break;
+
+		case HARD:		// CABEZA
+			it->x = 6;
+			it->y = 4;
+			it++;		// CUERPO
+			it->x = 5;
+			it->y = 4;
+			it++;		// COLA
+			it->x = 4;
+			it->y = 4;
+			break;
+		}/*
 		int tmpRows, tmpCols;
 		tmpRows = gridRows / 2;
 		tmpCols = gridCols / 2;
 		for (auto it = coordsRegister.begin(); it != coordsRegister.end(); it++) {
 			it->x = tmpCols--;
 			it->y = tmpRows;
-		}
+		}*/
 	}
 
 	bool Snake::CollisionsWallSnake() {
@@ -401,14 +436,14 @@ namespace {
 		}
 	}
 
-	void Snake::ResetSnakeOnDeath() {
+	void Snake::ResetSnakeOnDeath(Mode mode) {
 		coordsRegister.clear();
 		dirRegister.clear();
 		coordsRegister.push_back({ 1, 1 });
 		coordsRegister.push_back({ 1, 1 });
 		coordsRegister.push_back({ 1, 1 });
 
-		SetSnakeInicialPos();
+		SetSnakeInicialPos(mode);
 
 		dirRegister.push_back(DIR_RIGHT);
 		dirRegister.push_back(DIR_RIGHT);

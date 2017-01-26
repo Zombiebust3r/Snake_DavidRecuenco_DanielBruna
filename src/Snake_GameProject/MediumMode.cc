@@ -19,17 +19,20 @@ MediumMode::~MediumMode(void) {
 }
 
 void MediumMode::OnEntry(void) {
-	snake.ResetSnakeOnDeath();
+	cout << endl << "MEDIUM MODE" << endl;
+	snake.ResetSnakeOnDeath(MEDIUM);
 	snake.GiveGridLimits(MEDIUM);
-	snake.SetSnakeInicialPos();
+	snake.SetSnakeInicialPos(MEDIUM);
 	grid.SetGrid(MEDIUM);
 	mode = 1;
 	fruitsEaten = 0;
+	fruitCount = 0;
 	highscore = 0;
 	fruit.fruitCoord = fruit.SpawnFruit(MEDIUM);
 	score.score = 0;
 	score.lifes = 3;
 	tiempoEjecutar = 2000;
+	tiempoInicial = SDL_GetTicks();
 	timer.time = W.GetWidth();
 }
 
@@ -40,28 +43,34 @@ void MediumMode::Update(void) {
 	if (SDL_GetTicks() >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
 		tiempoEjecutar += 170;
-		snake.moveSnake();
-		if (snake.CollisionsWallSnake() || timer.timer(MEDIUM)) {
-			snake.ResetSnakeOnDeath();
-			if (score.decreaseLifes()) {
+		if (tiempoEjecutar - tiempoInicial >= 170) {
+			tiempoInicial = tiempoEjecutar;
+			snake.moveSnake();
+			if (snake.CollisionsWallSnake() || timer.timer(MEDIUM)) {
+				snake.ResetSnakeOnDeath(MEDIUM);
+				fruitCount = 0; // Fruit score bonus reset
+				if (score.decreaseLifes()) {
+					timer.resetTimer();
+					if (score.score > highscore) cout << "Best score: " << score.score << endl;
+					else if (score.score < highscore) cout << "Best score: " << highscore << endl;
+					SM.SetCurScene<MainMenu>();
+				}
+				if (score.score > highscore) highscore = score.score;
+				score.score = 0;
 				timer.resetTimer();
-				score.lifes = 3; // Life reset
-				SM.SetCurScene<MainMenu>();
 			}
-			if (score.score > highscore) highscore = score.score;
-			score.score = 0;
-			timer.resetTimer();
 		}
 	}
 	snake.GetKeys();
 
 	if (fruit.EatFruit(snake)) {
 		fruitsEaten++;
+		fruitCount++;
 		do {
 			fruit.fruitCoord = fruit.SpawnFruit(MEDIUM);
 		} while (snake.CheckPosition(fruit.fruitCoord));
 		snake.IncreaseSize();
-		score.addScore(fruitsEaten);
+		score.addScore(fruitCount);
 		if (fruit.CheckFruits(MEDIUM, fruitsEaten)) {
 			SM.SetCurScene<HardMode>();
 		}

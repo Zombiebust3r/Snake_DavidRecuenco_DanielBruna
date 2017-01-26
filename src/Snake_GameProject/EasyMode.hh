@@ -14,6 +14,7 @@ public:
 	void Draw(void) override;
 	
 	int fruitsEaten;
+	int fruitCount;
 	int mode;
 
 	Score score;
@@ -24,4 +25,5 @@ public:
 	Sprite background;
 	Countdown timer;
 	int tiempoEjecutar;
+	int tiempoInicial;
 };

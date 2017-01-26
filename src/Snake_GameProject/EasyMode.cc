@@ -6,7 +6,6 @@
 #include "MediumMode.hh"
 
 using namespace Logger;
-using namespace std;
 
 EasyMode::EasyMode(void) : grid(EASY){
 	// obj = { { posX, posY, ancho, alto }, ID };
@@ -17,17 +16,20 @@ EasyMode::~EasyMode(void) {
 }
 
 void EasyMode::OnEntry(void) {
-	snake.ResetSnakeOnDeath();
+	cout << endl << "EASY MODE" << endl;
+	snake.ResetSnakeOnDeath(EASY);
 	snake.GiveGridLimits(EASY);
-	snake.SetSnakeInicialPos();
+	snake.SetSnakeInicialPos(EASY);
 	grid.SetGrid(EASY);
 	mode = 1;
 	fruitsEaten = 0;
+	fruitCount = 0;
 	highscore = 0;
 	fruit.fruitCoord = fruit.SpawnFruit(EASY);
 	score.score = 0;
 	score.lifes = 3;
 	tiempoEjecutar = 2000;
+	tiempoInicial = SDL_GetTicks();
 	timer.time = W.GetWidth();
 }
 
@@ -38,29 +40,35 @@ void EasyMode::Update(void) {
 	if (SDL_GetTicks() >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
 		tiempoEjecutar += 170;
-		snake.moveSnake();
-		if (snake.CollisionsWallSnake() || timer.timer(EASY)) {
-			snake.ResetSnakeOnDeath();
-			if (score.decreaseLifes()) {
+		if (tiempoEjecutar - tiempoInicial >= 170) {
+			tiempoInicial = tiempoEjecutar;
+			snake.moveSnake();
+			if (snake.CollisionsWallSnake() || timer.timer(EASY)) {
+				snake.ResetSnakeOnDeath(EASY);
+				fruitCount = 0; // Fruit score bonus reset
+				if (score.decreaseLifes()) {
+					timer.resetTimer();
+					if (score.score > highscore) cout << "Best score: " << score.score << endl;
+					else if (score.score < highscore) cout << "Best score: " << highscore << endl;
+					SM.SetCurScene<MainMenu>();
+				}
+				if (score.score > highscore) highscore = score.score;
+				score.score = 0;
 				timer.resetTimer();
-				score.lifes = 3; // Life reset
-				SM.SetCurScene<MainMenu>();
 			}
-			if (score.score > highscore) highscore = score.score;
-			score.score = 0;
-			timer.resetTimer();
 		}
 	}
 	snake.GetKeys();
 
 	if (fruit.EatFruit(snake)) {
 		fruitsEaten++;
+		fruitCount++;
 		do {
 			fruit.fruitCoord = fruit.SpawnFruit(EASY);
 		}
 		while (snake.CheckPosition(fruit.fruitCoord));
 		snake.IncreaseSize();
-		score.addScore(fruitsEaten);
+		score.addScore(fruitCount);
 		if (fruit.CheckFruits(EASY, fruitsEaten)) {
 			SM.SetCurScene<MediumMode>();
 		}

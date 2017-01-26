@@ -23,4 +23,5 @@ public:
 	Sprite background;
 	Countdown timer;
 	int tiempoEjecutar;
+	int tiempoInicial;
 };
