@@ -4,6 +4,11 @@
 
 namespace {
 	class FruitSpawn {
+	private:
+		int x, y;
+		int cols, rows;
+		int baseCols = 15;
+		int baseRows = 8;
 
 	public:
 		Coord fruitCoord;
@@ -26,6 +31,9 @@ namespace {
 
 		//Draws the fruit in its own coords
 		Sprite drawFruit();
+
+		void SetFruitsVar(int p_x, int p_y, int p_rows, int p_cols);
+		Coord SpawnFruit();
 	};
 
 	FruitSpawn::FruitSpawn() {}
@@ -60,10 +68,10 @@ namespace {
 	bool FruitSpawn::CheckFruits(Mode mode, int fruitsEaten) {
 		switch (mode) {
 		case EASY:
-			if (fruitsEaten == 20 * (EASY + 1)) return true;
+			if (fruitsEaten == 10 * x + y*(EASY + 1)) return true;
 				break;
 		case MEDIUM:
-			if (fruitsEaten == 20 * (MEDIUM + 1)) return true;
+			if (fruitsEaten == 10 * x + y*(MEDIUM + 1)) return true;
 				break;
 		default: return false; break;
 		}
@@ -73,5 +81,18 @@ namespace {
 	Sprite FruitSpawn::drawFruit() {
 		fruit = { { ((CELL / 2) + (fruitCoord.x*CELL)), ((120 + (CELL / 2)) + (fruitCoord.y*CELL)), CELL, CELL }, ObjectID::FRUIT };
 		return fruit;
+	}
+
+	void FruitSpawn::SetFruitsVar(int p_x, int p_y, int p_rows, int p_cols) {
+		x = p_x;
+		y = p_y;
+		rows = baseRows*p_rows;
+		cols = baseCols*p_cols;
+	}
+	Coord FruitSpawn::SpawnFruit() {
+		fruitCoord.x = (rand() % (cols - 4)) + 3;
+		fruitCoord.y = (rand() % (rows - 4)) + 3;
+
+		return fruitCoord;
 	}
 }

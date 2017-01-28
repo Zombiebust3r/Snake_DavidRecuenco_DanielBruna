@@ -102,6 +102,9 @@
     <ClInclude Include="Countdown.hh">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="XML_FUNCTIONS.hh">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cc">

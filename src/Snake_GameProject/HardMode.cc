@@ -20,12 +20,14 @@ HardMode::~HardMode(void) {
 void HardMode::OnEntry(void) {
 	cout << endl << "HARD MODE" << endl;
 	snake.ResetSnakeOnDeath(HARD);
-	snake.GiveGridLimits(HARD);
+	ReadGrid(3, &r, &c, &t, &z, &x, &y); // 3-> HARD
+	snake.GiveGridLimits(r, c);
 	snake.SetSnakeInicialPos(HARD);
-	grid.SetGrid(HARD);
+	fruit.SetFruitsVar(x, y, r, c);
+	grid.SetGrid(r, c);
 	fruitsEaten = 0;
 	highscore = 0;
-	fruit.fruitCoord = fruit.SpawnFruit(HARD);
+	fruit.fruitCoord = fruit.SpawnFruit();
 	score.score = 0;
 	score.lifes = 3;
 	tiempoEjecutar = 100;
@@ -39,15 +41,16 @@ void HardMode::OnExit(void) {
 void HardMode::Update(void) {
 	if ((SDL_GetTicks() - tiempoInicial) >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
-		tiempoEjecutar += 150;
+		tiempoEjecutar += z;
 		snake.moveSnake();
 		if (snake.CollisionsWallSnake() || timer.timer(HARD)) {
 			snake.ResetSnakeOnDeath(HARD);
 			fruitsEaten = 0; //Fruit count reset
 			if (score.decreaseLifes()) {
+				string toPrint = "";
 				timer.resetTimer();
-				if (score.score > highscore) cout << "Best score: " << score.score << endl;
-				else if (score.score < highscore) cout << "Best score: " << highscore << endl;
+				if (score.score > highscore) { cout << "Best score: " << score.score << endl; toPrint = to_string(score.score); CompareTop10Snake(toPrint); }
+				else if (score.score < highscore) { cout << "Best score: " << highscore << endl; toPrint = to_string(highscore); CompareTop10Snake(toPrint); }
 				SM.SetCurScene<MainMenu>();
 			}
 			if (score.score > highscore) highscore = score.score;
@@ -59,8 +62,9 @@ void HardMode::Update(void) {
 
 	if (fruit.EatFruit(snake)) {
 		fruitsEaten++;
+		z += score.score / 10000;
 		do {
-			fruit.fruitCoord = fruit.SpawnFruit(HARD);
+			fruit.SpawnFruit();
 		} while (snake.CheckPosition(fruit.fruitCoord));
 		snake.IncreaseSize();
 		score.addScore(fruitsEaten);

@@ -47,6 +47,7 @@
     <ClInclude Include="Transform.hh" />
     <ClInclude Include="Window.hh" />
     <ClInclude Include="XMLreader.hh" />
+    <ClInclude Include="XML_FUNCTIONS.hh" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EasyMode.cc" />

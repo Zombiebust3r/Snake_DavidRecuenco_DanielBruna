@@ -21,13 +21,15 @@ MediumMode::~MediumMode(void) {
 void MediumMode::OnEntry(void) {
 	cout << endl << "MEDIUM MODE" << endl;
 	snake.ResetSnakeOnDeath(MEDIUM);
-	snake.GiveGridLimits(MEDIUM);
+	ReadGrid(2, &r, &c, &t, &z, &x, &y); // 2-> MEDIUM
+	snake.GiveGridLimits(r, c);
 	snake.SetSnakeInicialPos(MEDIUM);
-	grid.SetGrid(MEDIUM);
+	fruit.SetFruitsVar(x, y, r, c);
+	grid.SetGrid(r, c);
 	fruitsEaten = 0;
 	fruitCount = 0;
 	highscore = 0;
-	fruit.fruitCoord = fruit.SpawnFruit(MEDIUM);
+	fruit.fruitCoord = fruit.SpawnFruit();
 	score.score = 0;
 	score.lifes = 3;
 	tiempoEjecutar = 100;
@@ -41,15 +43,16 @@ void MediumMode::OnExit(void) {
 void MediumMode::Update(void) {
 	if ((SDL_GetTicks() - tiempoInicial) >= tiempoEjecutar) {
 		//Utilizado para variar la velocidad de la serpiente según el nivel. No podemos hacer que aumente con el score porque coge velocidades demasiado altas y en nivel difícil no se puede jugar.
-		tiempoEjecutar += 170;
+		tiempoEjecutar += z;
 		snake.moveSnake();
 		if (snake.CollisionsWallSnake() || timer.timer(MEDIUM)) {
 			snake.ResetSnakeOnDeath(MEDIUM);
 			fruitCount = 0; // Fruit score bonus reset
 			if (score.decreaseLifes()) {
 				timer.resetTimer();
-				if (score.score > highscore) cout << "Best score: " << score.score << endl;
-				else if (score.score < highscore) cout << "Best score: " << highscore << endl;
+				string toPrint = "";
+				if (score.score > highscore) { cout << "Best score: " << score.score << endl; toPrint = to_string(score.score); CompareTop10Snake(toPrint); }
+				else if (score.score < highscore) { cout << "Best score: " << highscore << endl; toPrint = to_string(highscore); CompareTop10Snake(toPrint); }
 				SM.SetCurScene<MainMenu>();
 			}
 			if (score.score > highscore) highscore = score.score;
@@ -62,8 +65,9 @@ void MediumMode::Update(void) {
 	if (fruit.EatFruit(snake)) {
 		fruitsEaten++;
 		fruitCount++;
+		z += score.score / 10000;
 		do {
-			fruit.fruitCoord = fruit.SpawnFruit(MEDIUM);
+			fruit.SpawnFruit();
 		} while (snake.CheckPosition(fruit.fruitCoord));
 		snake.IncreaseSize();
 		score.addScore(fruitCount);

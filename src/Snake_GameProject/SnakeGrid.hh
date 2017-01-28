@@ -29,6 +29,7 @@ namespace {
 		SnakeGrid(string filename);
 		SnakeGrid(Mode mode);
 		void SetGrid(Mode mode);
+		void SetGrid(int r, int c);
 		void DrawGrid();
 
 	private:
@@ -110,6 +111,21 @@ namespace {
 				else if (i != 0 || j != 0 || j != rows - 1 || i != cols - 1) { myGridSprites[i][j] = { { (CELL / 2) + ((i + 1)*CELL), (120 + (CELL / 2) + ((j + 1)*CELL)), CELL, CELL }, ObjectID::EMPTY }; }
 			}
 		}
+	}
+
+	void SnakeGrid::SetGrid(int r, int c) {
+		cols = baseCols * c; rows = baseRows * r;
+		myGridSprites.resize(cols);
+		//Loop to iterate inside myGridSprites in order to fill it. It will not have any obstacles inside.
+		for (int i = 0; i <= cols - 1; i++) {
+			myGridSprites[i].resize(rows);
+			for (int j = 0; j <= rows - 1; j++) {
+				if (i == 0 || j == 0 || j == rows - 1 || i == cols - 1) { myGridSprites[i][j] = { { (CELL / 2) + ((i + 1)*CELL), (120 + (CELL / 2) + ((j + 1)*CELL)), CELL, CELL }, ObjectID::WALL }; }
+				else if (i != 0 || j != 0 || j != rows - 1 || i != cols - 1) { myGridSprites[i][j] = { { (CELL / 2) + ((i + 1)*CELL), (120 + (CELL / 2) + ((j + 1)*CELL)), CELL, CELL }, ObjectID::EMPTY }; }
+			}
+		}
+		myGridSprites;
+		cout << "HI" << endl;
 	}
 
 	void SnakeGrid::DrawGrid() {

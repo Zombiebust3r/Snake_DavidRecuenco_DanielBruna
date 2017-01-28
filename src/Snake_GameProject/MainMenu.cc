@@ -81,6 +81,8 @@ void MainMenu::Draw(void) {
 		ranking.Draw();
 		exit.Draw();
 	} else if (rankingMenu) {
+		int top10[10] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		ReadTop10(top10);
 		ranking_bg.Draw();
 		return_b.Draw();
 		// RANKING TITLE
@@ -88,34 +90,34 @@ void MainMenu::Draw(void) {
 		{ W.GetWidth() / 2, 50, 1, 1 },
 		{ 255, 255, 255 });
 		// SCORES in RANKING
-		GUI::DrawTextBlended<FontID::PIXEL>("1- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("1- " + to_string(top10[0]),
 		{ W.GetWidth() / 2, 150, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("2- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("2- " + to_string(top10[1]),
 		{ W.GetWidth() / 2, 200, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("3- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("3- " + to_string(top10[2]),
 		{ W.GetWidth() / 2, 250, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("4- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("4- " + to_string(top10[3]),
 		{ W.GetWidth() / 2, 300, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("5- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("5- " + to_string(top10[4]),
 		{ W.GetWidth() / 2, 350, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("6- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("6- " + to_string(top10[5]),
 		{ W.GetWidth() / 2, 400, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("7- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("7- " + to_string(top10[6]),
 		{ W.GetWidth() / 2, 450, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("8- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("8- " + to_string(top10[7]),
 		{ W.GetWidth() / 2, 500, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("9- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("9- " + to_string(top10[8]),
 		{ W.GetWidth() / 2, 550, 1, 1 },
 		{ 255, 255, 255 });
-		GUI::DrawTextBlended<FontID::PIXEL>("10- " /*+ to_string(VARIABLE RECOGIDA DE XML)*/,
+		GUI::DrawTextBlended<FontID::PIXEL>("10- " + to_string(top10[9]),
 		{ W.GetWidth() / 2, 600, 1, 1 },
 		{ 255, 255, 255 });
 	}

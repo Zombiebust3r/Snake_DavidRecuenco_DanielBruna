@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.hh"
+#include "XML_FUNCTIONS.hh"
 #include "FruitSpawn.hh"
 
 // GameScene class with the main gameplay mode
@@ -24,4 +25,6 @@ public:
 	Countdown timer;
 	int tiempoEjecutar;
 	int tiempoInicial;
+
+	int r, c, z, x, y, t;
 };

@@ -91,6 +91,8 @@ namespace {
 
 		void GiveGridLimits(Mode mode);
 
+		void GiveGridLimits(int p_r, int p_c);
+
 		void SetSnakeInicialPos(Mode mode);
 
 		bool CollisionsWallSnake();
@@ -196,6 +198,10 @@ namespace {
 		}
 	}
 
+	void Snake::GiveGridLimits(int p_r, int p_c) {
+		gridCols *= p_c; gridRows *= p_r;
+	}
+
 	void Snake::SetSnakeInicialPos(Mode mode) {
 		actualDirection = DIR_RIGHT;
 		auto it = coordsRegister.begin();
@@ -245,7 +251,7 @@ namespace {
 	bool Snake::CollisionsWallSnake() {
 		//auto it = coordsRegister.end();
 		auto headIt = coordsRegister.begin();
-		if (headIt->x == 1 || headIt->x == gridCols || headIt->y == 1 || headIt->y == gridRows) {	//
+		if (headIt->x <= 1 || headIt->x >= gridCols || headIt->y <= 1 || headIt->y >= gridRows) {	//
 			return true;
 		}
 
